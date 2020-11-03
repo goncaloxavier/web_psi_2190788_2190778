@@ -1,18 +1,18 @@
 <?php
 
-namespace frontend\controllers;
+namespace app\controllers;
 
 use Yii;
-use app\models\Dispositivo;
-use app\models\DispositivoSearch;
+use app\models\RelatorioPeca;
+use app\models\RelatorioPecaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * DispositivoController implements the CRUD actions for Dispositivo model.
+ * RelatorioPecaController implements the CRUD actions for RelatorioPeca model.
  */
-class DispositivoController extends Controller
+class RelatorioPecaController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class DispositivoController extends Controller
     }
 
     /**
-     * Lists all Dispositivo models.
+     * Lists all RelatorioPeca models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new DispositivoSearch();
+        $searchModel = new RelatorioPecaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,29 +45,30 @@ class DispositivoController extends Controller
     }
 
     /**
-     * Displays a single Dispositivo model.
-     * @param integer $id
+     * Displays a single RelatorioPeca model.
+     * @param integer $idRelatorio
+     * @param integer $idPeca
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    public function actionView($idRelatorio, $idPeca)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($idRelatorio, $idPeca),
         ]);
     }
 
     /**
-     * Creates a new Dispositivo model.
+     * Creates a new RelatorioPeca model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Dispositivo();
+        $model = new RelatorioPeca();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idDispositivo]);
+            return $this->redirect(['view', 'idRelatorio' => $model->idRelatorio, 'idPeca' => $model->idPeca]);
         }
 
         return $this->render('create', [
@@ -76,18 +77,19 @@ class DispositivoController extends Controller
     }
 
     /**
-     * Updates an existing Dispositivo model.
+     * Updates an existing RelatorioPeca model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param integer $idRelatorio
+     * @param integer $idPeca
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionUpdate($idRelatorio, $idPeca)
     {
-        $model = $this->findModel($id);
+        $model = $this->findModel($idRelatorio, $idPeca);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idDispositivo]);
+            return $this->redirect(['view', 'idRelatorio' => $model->idRelatorio, 'idPeca' => $model->idPeca]);
         }
 
         return $this->render('update', [
@@ -96,29 +98,31 @@ class DispositivoController extends Controller
     }
 
     /**
-     * Deletes an existing Dispositivo model.
+     * Deletes an existing RelatorioPeca model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param integer $idRelatorio
+     * @param integer $idPeca
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
+    public function actionDelete($idRelatorio, $idPeca)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($idRelatorio, $idPeca)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Dispositivo model based on its primary key value.
+     * Finds the RelatorioPeca model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Dispositivo the loaded model
+     * @param integer $idRelatorio
+     * @param integer $idPeca
+     * @return RelatorioPeca the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModel($idRelatorio, $idPeca)
     {
-        if (($model = Dispositivo::findOne($id)) !== null) {
+        if (($model = RelatorioPeca::findOne(['idRelatorio' => $idRelatorio, 'idPeca' => $idPeca])) !== null) {
             return $model;
         }
 

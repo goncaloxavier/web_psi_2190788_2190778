@@ -1,18 +1,18 @@
 <?php
 
-namespace frontend\controllers;
+namespace app\controllers;
 
 use Yii;
-use app\models\Dispositivo;
-use app\models\DispositivoSearch;
+use app\models\Relatorio;
+use app\models\RelatorioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * DispositivoController implements the CRUD actions for Dispositivo model.
+ * RelatorioController implements the CRUD actions for Relatorio model.
  */
-class DispositivoController extends Controller
+class RelatorioController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class DispositivoController extends Controller
     }
 
     /**
-     * Lists all Dispositivo models.
+     * Lists all Relatorio models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new DispositivoSearch();
+        $searchModel = new RelatorioSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class DispositivoController extends Controller
     }
 
     /**
-     * Displays a single Dispositivo model.
+     * Displays a single Relatorio model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,16 +58,16 @@ class DispositivoController extends Controller
     }
 
     /**
-     * Creates a new Dispositivo model.
+     * Creates a new Relatorio model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Dispositivo();
+        $model = new Relatorio();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idDispositivo]);
+            return $this->redirect(['view', 'id' => $model->idRelatorio]);
         }
 
         return $this->render('create', [
@@ -76,7 +76,7 @@ class DispositivoController extends Controller
     }
 
     /**
-     * Updates an existing Dispositivo model.
+     * Updates an existing Relatorio model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -87,7 +87,7 @@ class DispositivoController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idDispositivo]);
+            return $this->redirect(['view', 'id' => $model->idRelatorio]);
         }
 
         return $this->render('update', [
@@ -96,7 +96,7 @@ class DispositivoController extends Controller
     }
 
     /**
-     * Deletes an existing Dispositivo model.
+     * Deletes an existing Relatorio model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +110,15 @@ class DispositivoController extends Controller
     }
 
     /**
-     * Finds the Dispositivo model based on its primary key value.
+     * Finds the Relatorio model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Dispositivo the loaded model
+     * @return Relatorio the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Dispositivo::findOne($id)) !== null) {
+        if (($model = Relatorio::findOne($id)) !== null) {
             return $model;
         }
 
