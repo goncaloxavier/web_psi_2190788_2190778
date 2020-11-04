@@ -31,8 +31,8 @@ class Dispositivo extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['estado', 'dataCompra', 'tipo', 'referencia'], 'required'],
             [['estado'], 'integer'],
+            [['dataCompra', 'tipo', 'referencia'], 'required'],
             [['dataCompra'], 'safe'],
             [['tipo'], 'string', 'max' => 30],
             [['referencia'], 'string', 'max' => 70],

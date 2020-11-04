@@ -6,13 +6,15 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model app\models\Dispositivo */
 /* @var $form yii\widgets\ActiveForm */
+
+$model -> estado = 1;
 ?>
 
 <div class="dispositivo-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'estado')->textInput() ?>
+    <?= $form->field($model, 'estado')->hiddenInput()->label(false) ?>
 
     <?= $form->field($model, 'dataCompra')->textInput() ?>
 

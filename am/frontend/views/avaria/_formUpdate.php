@@ -9,7 +9,7 @@ use yii\helpers\ArrayHelper;
 /* @var $model app\models\Avaria */
 /* @var $form yii\widgets\ActiveForm */
 
-$model -> estado = 1;
+$estado = array('Starvation', 'Nao Resolvido', 'Em Resolucao', 'Resolvido');
 ?>
 
 <div class="avaria-form">
@@ -21,6 +21,9 @@ $model -> estado = 1;
     <?= $form->field($model, 'tipo')->textInput() ?>
 
     <?= $form->field($model, 'estado')->hiddenInput()->label(false) ?>
+    <?= $form->field($model, 'estado')->dropDownList($estado,
+        ['prompt' => 'Selecione dispositivo']
+    )->label('estado') ?>
 
     <?= $form->field($model, 'gravidade')->textInput() ?>
 
@@ -30,7 +33,7 @@ $model -> estado = 1;
 
     <?= $form->field($model, 'idDispositivo')->dropDownList(ArrayHelper::map(Dispositivo::find()->all(), 'idDispositivo', 'referencia'),
         ['prompt' => 'Selecione dispositivo']
-        )->label('Dispositivo') ?>
+    )->label('Dispositivo') ?>
 
     <?= $form->field($model, 'idRelatorio')->hiddenInput()->label(false) ?>
 

@@ -35,13 +35,9 @@ class AvariaController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new AvariaSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $avarias = Avaria::find()->all();
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        return $this->render('index', ['avarias' => $avarias]);
     }
 
     /**
