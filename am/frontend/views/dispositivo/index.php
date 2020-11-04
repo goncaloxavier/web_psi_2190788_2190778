@@ -3,38 +3,19 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\DispositivoSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
-$this->title = 'Dispositivos';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="dispositivo-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Create Dispositivo', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'idDispositivo',
-            'estado',
-            'dataCompra',
-            'tipo',
-            'referencia',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-
-
+    <table border="1" width="100%" style="overflow: auto">
+        <?php
+            foreach ($dispositivos as $dispositivo) {
+        ?>
+                <th>Data Compra</th><th>Referencia</th><th>Estado</th>
+                <?php
+                    echo "<tr onclick=location.href='dispositivo/".$dispositivo->idDispositivo."'>";
+                ?>
+                    <td><?= $dispositivo->dataCompra ?></td><td><?= $dispositivo->referencia ?></td><?= $dispositivo->getEstado() ?>
+        <?php
+            }
+        ?>
+    </table>
 </div>

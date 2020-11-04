@@ -62,4 +62,15 @@ class Dispositivo extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Avaria::className(), ['idDispositivo' => 'idDispositivo']);
     }
+
+    public function getEstado(){
+        switch ($this->estado){
+            case 0:
+                return "<td style='background-color: orange'></td>";
+                break;
+            case 1:
+                return "<td style='background-color: green'></td>";
+                break;
+        }
+    }
 }
