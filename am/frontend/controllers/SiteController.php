@@ -94,7 +94,7 @@ class SiteController extends Controller
         } else {
             $model->password = '';
 
-            return $this->render('login', [
+            return $this->render('login2', [
                 'model' => $model,
             ]);
         }
