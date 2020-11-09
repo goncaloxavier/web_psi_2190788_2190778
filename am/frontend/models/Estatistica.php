@@ -50,5 +50,4 @@ class Estatistica extends \yii\db\ActiveRecord
 
         return $query;
     }
-
 }
