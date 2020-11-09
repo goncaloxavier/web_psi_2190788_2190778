@@ -11,6 +11,7 @@ use app\models\Avaria;
  */
 class AvariaSearch extends Avaria
 {
+    public $search;
     /**
      * {@inheritdoc}
      */
@@ -18,7 +19,7 @@ class AvariaSearch extends Avaria
     {
         return [
             [['idAvaria', 'tipo', 'estado', 'gravidade', 'idDispositivo', 'idRelatorio'], 'integer'],
-            [['descricao', 'data'], 'safe'],
+            [['descricao', 'data', 'search'], 'safe'],
         ];
     }
 
@@ -60,14 +61,19 @@ class AvariaSearch extends Avaria
         $query->andFilterWhere([
             'idAvaria' => $this->idAvaria,
             'tipo' => $this->tipo,
-            'estado' => $this->estado,
+            'avaria.estado' => $this->estado,
             'gravidade' => $this->gravidade,
             'data' => $this->data,
             'idDispositivo' => $this->idDispositivo,
             'idRelatorio' => $this->idRelatorio,
         ]);
 
+
+        $query->joinWith(['idDispositivo0']);
+
         $query->andFilterWhere(['like', 'descricao', $this->descricao]);
+        $query->andFilterWhere(['like', 'referencia', $this->search]);
+
 
         return $dataProvider;
     }

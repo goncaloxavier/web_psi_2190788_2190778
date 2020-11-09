@@ -15,15 +15,7 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'idAvaria') ?>
-
-    <?= $form->field($model, 'descricao') ?>
-
-    <?= $form->field($model, 'tipo') ?>
-
-    <?= $form->field($model, 'estado') ?>
-
-    <?= $form->field($model, 'gravidade') ?>
+    <?= $form->field($model, 'search') ?>
 
     <?php // echo $form->field($model, 'data') ?>
 

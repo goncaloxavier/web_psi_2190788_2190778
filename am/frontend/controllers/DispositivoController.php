@@ -35,10 +35,12 @@ class DispositivoController extends Controller
      */
     public function actionIndex()
     {
-        $dispositivos = Dispositivo::find()->all();
+        $searchModel = new DispositivoSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
-            'dispositivos' => $dispositivos
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 

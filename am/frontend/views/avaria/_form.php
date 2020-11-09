@@ -2,14 +2,14 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use app\models\Dispositivo;
 use yii\helpers\ArrayHelper;
+use app\models\Dispositivo;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Avaria */
 /* @var $form yii\widgets\ActiveForm */
 
-$model -> estado = 1;
+$model->estado = 1;
 ?>
 
 <div class="avaria-form">
@@ -30,7 +30,7 @@ $model -> estado = 1;
 
     <?= $form->field($model, 'idDispositivo')->dropDownList(ArrayHelper::map(Dispositivo::find()->all(), 'idDispositivo', 'referencia'),
         ['prompt' => 'Selecione dispositivo']
-        )->label('Dispositivo') ?>
+    )->label('Dispositivo') ?>
 
     <?= $form->field($model, 'idRelatorio')->hiddenInput()->label(false) ?>
 

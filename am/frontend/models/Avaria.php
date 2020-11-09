@@ -22,6 +22,8 @@ use app\models\Dispositivo;
  */
 class Avaria extends \yii\db\ActiveRecord
 {
+    public $referencia;
+    public $count;
     /**
      * {@inheritdoc}
      */
@@ -39,6 +41,7 @@ class Avaria extends \yii\db\ActiveRecord
             [['descricao', 'tipo', 'gravidade', 'data'], 'required'],
             [['tipo', 'estado', 'gravidade', 'idDispositivo', 'idRelatorio'], 'integer'],
             [['data'], 'safe'],
+            [['referencia'], 'safe'],
             [['descricao'], 'string', 'max' => 200],
             [['idDispositivo'], 'exist', 'skipOnError' => true, 'targetClass' => Dispositivo::className(), 'targetAttribute' => ['idDispositivo' => 'idDispositivo']],
         ];
@@ -93,25 +96,20 @@ class Avaria extends \yii\db\ActiveRecord
         return $gravidade;
     }
 
-    public function getDispositivo(){
-        $dispositivo = Dispositivo::find()->where(['idDispositivo' => $this->idDispositivo]);
-
-        return $dispositivo->referencia;
-    }
 
     public function getEstado(){
         switch ($this->estado){
             case 0:
-                return "<td style='background-color: red'></td>";
+                return ['style' => 'background-color: red'];
                 break;
             case 1:
-                return "<td style='background-color: orange'></td>";
+                return ['style' => 'background-color: orange'];
                 break;
             case 2:
-                return "<td style='background-color: yellow'></td>";
+                return ['style' => 'background-color: yellow'];
                 break;
             case 3:
-                return "<td style='background-color: green'></td>";
+                return ['style' => 'background-color: green'];
                 break;
         }
     }
