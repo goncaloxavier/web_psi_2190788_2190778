@@ -11,13 +11,8 @@ use yii\bootstrap\Dropdown;
 /* @var $model app\models\Estatistica */
 /* @var $form yii\widgets\ActiveForm */
 
-
-
 $options = array('Mensal', 'Anual');
 ?>
-
-
-
 <div class="avaria-form">
     <div style="float: right">
         <?php $form = ActiveForm::begin();?>
@@ -25,7 +20,6 @@ $options = array('Mensal', 'Anual');
         <?php ActiveForm::end();?>
     </div>
     <?php
-
     echo DetailView::widget([
         'model' => $model,
         'attributes' => [

@@ -16,9 +16,9 @@ class EstatisticaController extends Controller
         $request = Yii::$app->request;
         $model = new Estatistica();
         if($model->load($request->post())){
-            $model->filtro = $request->post('Estatistica');
-
-            switch ($model->filtro['filtro']){
+            $option = $request->post('Estatistica');
+            $model->filtro = $option['filtro'];
+            switch ($model->filtro){
                 case '':
                     $model->nAvaria = $model->getnAvaria();
                     $model->custoPeca = $model->getcustoPeca();
@@ -32,6 +32,13 @@ class EstatisticaController extends Controller
                 case '2':
                     break;
             }
+        }else{
+            $model->nAvaria = $model->getnAvaria();
+            $model->custoPeca = $model->getcustoPeca();
+            $model->nAvariaRes = $model->getnAvariaRes();
+            $model->nAvariaNr = $model->getnAvariaNr();
+            $model->nDispositivoF = $model->getnDispositivoF();
+            $model->nDispositivoNF = $model->getnDispositivoNF();
         }
 
         return $this->render('index', ['model' => $model]);
