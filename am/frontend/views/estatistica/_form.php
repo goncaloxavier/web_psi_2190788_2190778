@@ -11,12 +11,18 @@ use yii\bootstrap\Dropdown;
 /* @var $model app\models\Estatistica */
 /* @var $form yii\widgets\ActiveForm */
 
-$options = array('Mensal', 'Anual');
+$options = array('Anual', 'Mensal');
+$mes = array('Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro');
 ?>
 <div class="avaria-form">
     <div style="float: right">
         <?php $form = ActiveForm::begin();?>
-        <?= $form->field($model, 'filtro')->dropDownList($options,['prompt' => 'Desde Sempre', 'onchange' => 'this.form.submit()'])->label(false) ?>
+        <?= $form->field($model, 'filtro')->dropDownList($options,['onchange' => 'this.form.submit()'])->label(false) ?>
+        <?php
+        if ($model->filtro == 1){
+            echo $form->field($model, 'mes')->dropDownList($mes,['onchange' => 'this.form.submit()'])->label(false);
+        }
+        ?>
         <?php ActiveForm::end();?>
     </div>
     <?php

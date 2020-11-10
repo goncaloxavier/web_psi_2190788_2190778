@@ -16,39 +16,67 @@ class Estatistica extends \yii\db\ActiveRecord
     public $nDispositivoF;
     public $nDispositivoNF;
     public $filtro;
+    public $mes;
 
-    public function getnAvaria(){
-        $model = Avaria::find()->all();
-
-        return count($model);;
+    public function getnAvaria($mes){
+        if($mes == null){
+            $model = Avaria::find()->all();
+            return count($model);
+        }else{
+            $model = Avaria::find()->where(['Month(data)' => $mes])->count();
+            return $model;
+        }
     }
 
-    public function getcustoPeca(){
+    public function getcustoPeca($mes){
 
         return 1;
     }
 
-    public function getnAvariaRes(){
-        $query = Avaria::find()->where(['estado' => 3])->count();
+    public function getnAvariaRes($mes){
 
-        return $query;
+        if($mes == null){
+            $query = Avaria::find()->where(['estado' => 3])->count();
+            return $query;
+        }else{
+            $query = Avaria::find()->where(['month(data)'=>$mes, 'estado' => 3])->count();
+            return $query;
+        }
+
     }
 
-    public function getnAvariaNr(){
-        $query = Avaria::find()->where(['estado' => 1])->count();
+    public function getnAvariaNr($mes){
 
-        return $query;
+        if($mes == null){
+            $query = Avaria::find()->where(['estado' => 1])->count();
+            return $query;
+        }else{
+            $query = Avaria::find()->where(['month(data)'=>$mes, 'estado' => 1])->count();
+            return $query;
+        }
+
     }
 
-    public function getnDispositivoF(){
-        $query = Dispositivo::find()->where(['estado' => 1])->count();
+    public function getnDispositivoF($mes){
 
-        return $query;
+        if($mes == null){
+            $query = Dispositivo::find()->where(['estado' => 1])->count();
+            return $query;
+        }else{
+            $query = Dispositivo::find()->where(['month(dataCompra)'=>$mes, 'estado' => 1])->count();
+            return $query;
+        }
     }
 
-    public function getnDispositivoNF(){
-        $query = Dispositivo::find()->where(['estado' => 0])->count();
+    public function getnDispositivoNF($mes){
 
-        return $query;
+        if($mes == null){
+            $query = Dispositivo::find()->where(['estado' => 0])->count();
+            return $query;
+        }else{
+            $query = Dispositivo::find()->where(['month(dataCompra)'=>$mes, 'estado' => 0])->count();
+            return $query;
+        }
     }
+
 }
