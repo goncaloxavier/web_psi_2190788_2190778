@@ -41,7 +41,7 @@ class AvariaSearch extends Avaria
      */
     public function search($params)
     {
-        $query = Avaria::find();
+        $query = Avaria::findBySql("SELECT * FROM avaria WHERE avaria.estado IN (3,2,1, 0) ORDER BY FIELD(avaria.estado,0,1,2,3), data desc");
 
         // add conditions that should always apply here
 
@@ -67,13 +67,6 @@ class AvariaSearch extends Avaria
             'idDispositivo' => $this->idDispositivo,
             'idRelatorio' => $this->idRelatorio,
         ]);
-
-
-        $query->joinWith(['idDispositivo0']);
-
-        $query->andFilterWhere(['like', 'descricao', $this->descricao]);
-        $query->andFilterWhere(['like', 'referencia', $this->search]);
-
 
         return $dataProvider;
     }
