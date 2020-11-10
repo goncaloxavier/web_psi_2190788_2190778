@@ -7,25 +7,22 @@ use yii\widgets\DetailView;
 use yii\bootstrap\Dropdown;
 
 
-/* @var $this yii\web\View /
-/ @var $model app\models\Estatistica /
-/ @var $form yii\widgets\ActiveForm */
+/* @var $this yii\web\View */
+/* @var $model app\models\Estatistica */
+/* @var $form yii\widgets\ActiveForm */
 
-$model->nAvaria = $model->getnAvaria();
-$model->custoPeca = $model->getcustoPeca();
-$model->nAvariaRes = $model->getnAvariaRes();
-$model->nAvariaNr = $model->getnAvariaNr();
-$model->nDispositivoF = $model->getnDispositivoF();
-$model->nDispositivoNF = $model->getnDispositivoNF();
 
-$options = array('Mensal', 'Anual', 'Todos');
+
+$options = array('Mensal', 'Anual');
 ?>
 
 
 
 <div class="avaria-form">
     <div style="float: right">
-        <?= Html::dropDownList("Listname","2",$options,['prompt' => '--- select ---']) ;?>
+        <?php $form = ActiveForm::begin();?>
+        <?= $form->field($model, 'filtro')->dropDownList($options,['prompt' => 'Desde Sempre', 'onchange' => 'this.form.submit()'])->label(false) ?>
+        <?php ActiveForm::end();?>
     </div>
     <?php
 

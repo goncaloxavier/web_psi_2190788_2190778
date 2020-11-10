@@ -15,6 +15,7 @@ class Estatistica extends \yii\db\ActiveRecord
     public $nAvariaNr;
     public $nDispositivoF;
     public $nDispositivoNF;
+    public $filtro;
 
     public function getnAvaria(){
         $model = Avaria::find()->all();
