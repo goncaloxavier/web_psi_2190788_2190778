@@ -2,9 +2,11 @@
 
 namespace frontend\controllers;
 
+use app\models\Dispositivo;
 use Yii;
 use app\models\Avaria;
 use app\models\AvariaSearch;
+use yii\base\Model;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -107,9 +109,20 @@ class AvariaController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $query = Avaria::find()->where(['idDispositivo' => $this->findModel($id)->idDispositivo , 'gravidade' => 0])->count();
+        var_dump($query);
 
-        return $this->redirect(['index']);
+        if ($query != '1'){
+            $this->findModel($id)->delete();
+            return $this->redirect(['avaria/index']);
+        }else{
+            $dispositivo = $this->findModel($id)->idDispositivo0;
+            $dispositivo->estado = 1;
+            $dispositivo->save();
+            $this->findModel($id)->delete();
+            return $this->redirect(['avaria/index']);
+        }
+
     }
 
     /**
