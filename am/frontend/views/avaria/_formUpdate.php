@@ -10,6 +10,8 @@ use yii\helpers\ArrayHelper;
 /* @var $form yii\widgets\ActiveForm */
 
 $estado = array('Starvation', 'Nao Resolvido', 'Em Resolucao', 'Resolvido');
+$tipo = array('Hardware','Software');
+$gravidade = array('Não Funcional','Funcional');
 ?>
 
 <div class="avaria-form">
@@ -18,14 +20,21 @@ $estado = array('Starvation', 'Nao Resolvido', 'Em Resolucao', 'Resolvido');
 
     <?= $form->field($model, 'descricao')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'tipo')->textInput() ?>
+    <?= $form->field($model, 'tipo')->hiddenInput()->label(false) ?>
+    <?= $form->field($model, 'tipo')->dropDownList($tipo,
+        ['prompt' => 'Selecione tipo']
+    )->label('Tipo') ?>
 
     <?= $form->field($model, 'estado')->hiddenInput()->label(false) ?>
     <?= $form->field($model, 'estado')->dropDownList($estado,
-        ['prompt' => 'Selecione dispositivo']
-    )->label('estado') ?>
+        ['prompt' => 'Selecione estado']
+    )->label('Estado') ?>
 
-    <?= $form->field($model, 'gravidade')->textInput() ?>
+
+    <?= $form->field($model, 'gravidade')->hiddenInput()->label(false) ?>
+    <?= $form->field($model, 'gravidade')->dropDownList($gravidade,
+        ['prompt' => 'Selecione a gravidade']
+    )->label('Gravidade') ?>
 
     <?= $form->field($model, 'data')->textInput() ?>
 
