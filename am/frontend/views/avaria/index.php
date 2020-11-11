@@ -39,26 +39,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     return "";
                 },
                 'contentOptions' => function ($model) {
-                    switch ($model->estado){
-                        case 0:
-                            return ['style' => 'background-color:red'];
-                            break;
-                        case 1:
-                            return ['style' => 'background-color:orange'];
-                            break;
-                        case 2:
-                            return ['style' => 'background-color:yellow'];
-                            break;
-                        case 3:
-                            return ['style' => 'background-color:green'];
-                            break;
-                    }
+                    return $model->getEstado();
                 }
             ],
-
-            //'idDispositivo',
-            //'idRelatorio',
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

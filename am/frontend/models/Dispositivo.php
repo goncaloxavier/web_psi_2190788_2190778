@@ -17,6 +17,7 @@ use Yii;
  */
 class Dispositivo extends \yii\db\ActiveRecord
 {
+    public $estado_array = array('Nao Funcional', 'Funcional');
     /**
      * {@inheritdoc}
      */
@@ -66,11 +67,9 @@ class Dispositivo extends \yii\db\ActiveRecord
     public function getEstado(){
         switch ($this->estado){
             case 0:
-                return "<td style='background-color: orange'></td>";
-                break;
+                return ['style' => 'background-color: orange'];
             case 1:
-                return "<td style='background-color: green'></td>";
-                break;
+                return ['style' => 'background-color: green'];
         }
     }
 }

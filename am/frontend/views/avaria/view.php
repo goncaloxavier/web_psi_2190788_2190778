@@ -29,14 +29,26 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'idAvaria',
-            'descricao',
-            'tipo',
-            'estado',
-            'gravidade',
             'data',
-            'idDispositivo',
-            'idRelatorio',
+            'descricao',
+            [
+                'attribute' => 'idDispositivo',
+                'label' => 'Dispositivo',
+                'value' => $model->idDispositivo0->referencia,
+            ],
+            [
+                'attribute' => 'tipo',
+                'value' => $model->getTipo(),
+            ],
+            [
+                'attribute' => 'gravidade',
+                'value' => $model->getGravidade(),
+            ],
+            [
+                'attribute' => 'estado',
+                'value' => "",
+                'contentOptions' => $model->getEstado(),
+            ],
         ],
     ]) ?>
 

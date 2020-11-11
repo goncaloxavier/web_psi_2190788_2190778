@@ -29,11 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'idDispositivo',
-            'estado',
             'dataCompra',
             'tipo',
             'referencia',
+            [
+                'attribute' => 'estado',
+                'value' => "",
+                'contentOptions' => $model->getEstado(),
+            ],
         ],
     ]) ?>
 

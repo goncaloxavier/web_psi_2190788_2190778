@@ -24,6 +24,9 @@ class Avaria extends \yii\db\ActiveRecord
 {
     public $referencia;
     public $count;
+    public $estado_array = array('Starvation', 'Nao Resolvido', 'Em Resolucao', 'Resolvido');
+    public $tipo_array = array('Hardware','Software');
+    public $gravidade_array = array('Não Funcional','Funcional');
     /**
      * {@inheritdoc}
      */
@@ -38,7 +41,7 @@ class Avaria extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['descricao', 'tipo', 'gravidade', 'data'], 'required'],
+            [['descricao', 'tipo', 'gravidade', 'data', 'idDispositivo', 'estado'], 'required'],
             [['tipo', 'estado', 'gravidade', 'idDispositivo', 'idRelatorio'], 'integer'],
             [['data'], 'safe'],
             [['referencia'], 'safe'],
@@ -96,21 +99,28 @@ class Avaria extends \yii\db\ActiveRecord
         return $gravidade;
     }
 
+    public function getTipo(){
+        switch ($this->tipo){
+            case 0:
+                $tipo = "Hardware";
+                break;
+            case 1:
+                $tipo = "Software";
+                break;
+        }
+        return $tipo;
+    }
 
     public function getEstado(){
         switch ($this->estado){
             case 0:
                 return ['style' => 'background-color: red'];
-                break;
             case 1:
                 return ['style' => 'background-color: orange'];
-                break;
             case 2:
                 return ['style' => 'background-color: yellow'];
-                break;
             case 3:
                 return ['style' => 'background-color: green'];
-                break;
         }
     }
 }
