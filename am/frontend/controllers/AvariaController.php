@@ -72,6 +72,13 @@ class AvariaController extends Controller
         $model->data = date("Y-m-d H:i:s");
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $dispositivo = $model->idDispositivo0;
+            if($model->gravidade == 0){
+                $dispositivo->estado = 0;
+            }else{
+                $dispositivo->estado = 1;
+            }
+            $dispositivo->save();
             return $this->redirect(['view', 'id' => $model->idAvaria]);
         }
 
