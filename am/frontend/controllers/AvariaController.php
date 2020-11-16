@@ -123,6 +123,7 @@ class AvariaController extends Controller
             return $this->redirect(['avaria/index']);
         }
 
+
     }
 
     /**
