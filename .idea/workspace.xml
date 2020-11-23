@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e1de8aaa-f5ee-4ec3-9032-ce986d56baad" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/am/frontend/views/avaria/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/views/avaria/_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/views/avaria/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/views/avaria/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/views/dispositivo/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/views/dispositivo/_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/views/dispositivo/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/views/dispositivo/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/views/dispositivo/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/views/dispositivo/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/views/layouts/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/web/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/web/css/site.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/am/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/am/vendor/yiisoft/yii2-swiftmailer" />
+      <path value="$PROJECT_DIR$/am/vendor/yiisoft/yii2-gii" />
+      <path value="$PROJECT_DIR$/am/vendor/yiisoft/yii2-faker" />
+      <path value="$PROJECT_DIR$/am/vendor/yiisoft/yii2-debug" />
+      <path value="$PROJECT_DIR$/am/vendor/yiisoft/yii2-composer" />
+      <path value="$PROJECT_DIR$/am/vendor/yiisoft/yii2-bootstrap" />
+      <path value="$PROJECT_DIR$/am/vendor/yiisoft/yii2" />
+      <path value="$PROJECT_DIR$/am/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/am/vendor/composer" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/am/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/am/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/am/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/am/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/am/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/am/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/am/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/am/vendor/phpspec/php-diff" />
+      <path value="$PROJECT_DIR$/am/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/am/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/am/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/am/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/am/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/am/vendor/behat/gherkin" />
+      <path value="$PROJECT_DIR$/am/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/am/vendor/cebe/markdown" />
+      <path value="$PROJECT_DIR$/am/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/am/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/am/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/am/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/am/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/am/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/am/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/am/vendor/codeception/verify" />
+      <path value="$PROJECT_DIR$/am/vendor/codeception/stub" />
+      <path value="$PROJECT_DIR$/am/vendor/codeception/phpunit-wrapper" />
+      <path value="$PROJECT_DIR$/am/vendor/codeception/module-yii2" />
+      <path value="$PROJECT_DIR$/am/vendor/codeception/module-filesystem" />
+      <path value="$PROJECT_DIR$/am/vendor/codeception/module-asserts" />
+      <path value="$PROJECT_DIR$/am/vendor/codeception/lib-innerbrowser" />
+      <path value="$PROJECT_DIR$/am/vendor/codeception/lib-asserts" />
+      <path value="$PROJECT_DIR$/am/vendor/codeception/codeception" />
+      <path value="$PROJECT_DIR$/am/vendor/bower-asset/yii2-pjax" />
+      <path value="$PROJECT_DIR$/am/vendor/bower-asset/punycode" />
+      <path value="$PROJECT_DIR$/am/vendor/bower-asset/jquery" />
+      <path value="$PROJECT_DIR$/am/vendor/bower-asset/inputmask" />
+      <path value="$PROJECT_DIR$/am/vendor/bower-asset/bootstrap" />
+      <path value="$PROJECT_DIR$/am/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/am/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/am/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/am/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/am/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/am/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/am/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/am/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/am/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/am/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/am/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/am/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/am/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/am/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/am/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/am/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/am/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/am/vendor/doctrine/instantiator" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1khb1fEDhSztHydFum8APUFWw6X" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e1de8aaa-f5ee-4ec3-9032-ce986d56baad" name="Default Changelist" comment="" />
+      <created>1606155557477</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606155557477</updated>
+      <workItem from="1606155558778" duration="32000" />
+      <workItem from="1606155592417" duration="6809000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1606155588980">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1606155588980" />
+    <state x="455" y="2" width="1008" height="1037" key="search.everywhere.popup" timestamp="1606168812060">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1606157681512" />
+    <state x="455" y="2" width="1008" height="1037" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1280.680@0.0.1920.1040" timestamp="1606168812060" />
+  </component>
+</project>

@@ -10,9 +10,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Avarias', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="avaria-create">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
+    <h2><?= Html::encode($this->title) ?></h2>
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
