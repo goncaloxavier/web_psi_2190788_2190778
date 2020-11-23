@@ -3,5 +3,10 @@ actor: UnitTester
 bootstrap: false
 modules:
     enabled:
+        - Asserts
+        - Db:
+            dsn: 'mysql:host=localhost;dbname=am_test'
+            user: 'root'
+            password: ''
         - Yii2:
             part: fixtures

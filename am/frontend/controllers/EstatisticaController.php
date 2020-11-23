@@ -11,13 +11,11 @@ use yii;
 
 class EstatisticaController extends Controller
 {
-
     public function actionIndex(){
         $request = Yii::$app->request;
         $model = new Estatistica();
         if($model->load($request->post())){
             $option = $request->post('Estatistica');
-            var_dump($option);
             $model->filtro = $option['filtro'];
             switch ($model->filtro){
                 case '0':

@@ -1,11 +1,9 @@
 <?php
 
-
 namespace app\models;
 use app\models\Avaria;
 use app\models\Dispositivo;
 use app\models\Peca;
-
 
 class Estatistica extends \yii\db\ActiveRecord
 {
