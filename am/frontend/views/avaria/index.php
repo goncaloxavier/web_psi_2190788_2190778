@@ -7,23 +7,20 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\AvariaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Avarias';
+$this->title = 'Listagem de Avarias';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="avaria-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h2><?= Html::encode($this->title) ?></h2>
 
-    <p>
-        <?= Html::a('Create Avaria', ['create'], ['class' => 'btn btn-success']) ?>
+    <p align="right">
+        <?= Html::a('+', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
-    <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
             'data',
             'descricao',
             [
@@ -35,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'attribute' => 'estado',
+                'label' => 'Estado Reparacao',
                 'value' => function ($model) {
                     return "";
                 },

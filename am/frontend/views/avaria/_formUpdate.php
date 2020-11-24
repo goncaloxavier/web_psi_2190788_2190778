@@ -10,36 +10,32 @@ use yii\helpers\ArrayHelper;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="avaria-form">
-
+<div class="center-screen">
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'descricao')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'tipo')->dropDownList($model->tipo_array,
-        ['prompt' => 'Selecione tipo']
-    )->label('Tipo') ?>
-
-    <?= $form->field($model, 'estado')->dropDownList($model->estado_array,
-        ['prompt' => 'Selecione estado']
-    )->label('Estado') ?>
-
-    <?= $form->field($model, 'gravidade')->dropDownList($model->gravidade_array,
-        ['prompt' => 'Selecione a gravidade']
-    )->label('Gravidade') ?>
-
-    <?= $form->field($model, 'data')->textInput() ?>
-
-    <?= $form->field($model, 'idDispositivo')->dropDownList(ArrayHelper::map(Dispositivo::find()->all(), 'idDispositivo', 'referencia'),
-        ['prompt' => 'Selecione dispositivo']
-    )->label('Dispositivo') ?>
+    <table style="width: 300px">
+        <tr>
+            <td align="left"><label>Tipo</label>
+            <td><?= $form->field($model, 'tipo')->dropDownList($model->tipo_array, ['prompt' => 'Selecione tipo'])->label(false) ?>
+        <tr>
+            <td align="left"><label>Estado</label>
+            <td> <?= $form->field($model, 'estado')->dropDownList($model->estado_array, ['prompt' => 'Selecione estado'])->label(false) ?>
+        <tr>
+            <td align="left"><label>Gravidade</label>
+            <td><?= $form->field($model, 'gravidade')->dropDownList($model->gravidade_array, ['prompt' => 'Selecione a gravidade'])->label(false) ?>
+        <tr>
+            <td align="left"><label>Data</label>
+            <td> <?= $form->field($model, 'data')->textInput()->label(false) ?>
+        <tr>
+            <td align="left"><label>Dispositivo</label>
+            <td><?= $form->field($model, 'idDispositivo')->dropDownList(ArrayHelper::map(Dispositivo::find()->all(), 'idDispositivo', 'referencia'), ['prompt' => 'Selecione dispositivo'])->label(false) ?>
+        <tr>
+            <td align="left"><label>Descricao</label>
+            <td> <?= $form->field($model, 'descricao')->textarea(['maxlength' => true])->label(false) ?>
+        <tr>
+            <td></td><td align="right"><?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+    </table>
 
     <?= $form->field($model, 'idRelatorio')->hiddenInput()->label(false) ?>
 
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-    </div>
-
     <?php ActiveForm::end(); ?>
-
 </div>

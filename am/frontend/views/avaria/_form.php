@@ -11,9 +11,8 @@ use app\models\Dispositivo;
 ?>
 
 <div class="center-screen">
-
     <?php $form = ActiveForm::begin(); ?>
-    <table>
+    <table style="width: 300px">
         <tr>
             <td align="left"><label>Tipo</label>
             <td><?= $form->field($model, 'tipo')->dropDownList($model->tipo_array, ['prompt' => 'Selecione tipo'])->label(false) ?>
@@ -25,7 +24,7 @@ use app\models\Dispositivo;
             <td><?= $form->field($model, 'gravidade')->dropDownList($model->gravidade_array, ['prompt' => 'Selecione a gravidade'])->label(false) ?>
         <tr>
             <td align="left"><label>Data</label>
-            <td> <?= $form->field($model, 'data')->textInput()->label(false) ?>
+            <td> <?= $form->field($model, 'data')->textInput(['disabled' => 'disabled'])->label(false) ?>
         <tr>
             <td align="left"><label>Dispositivo</label>
             <td><?= $form->field($model, 'idDispositivo')->dropDownList(ArrayHelper::map(Dispositivo::find()->all(), 'idDispositivo', 'referencia'), ['prompt' => 'Selecione dispositivo'])->label(false) ?>

@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="dispositivo-create">
 
-    <h3><?= Html::encode($this->title) ?></h3>
+    <h2 align="left"><?= Html::encode($this->title) ?></h2>
 
     <?= $this->render('_form', [
         'model' => $model,

@@ -7,18 +7,16 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\DispositivoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Dispositivos';
+$this->title = 'Listagem de Dispositivos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="dispositivo-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h2><?= Html::encode($this->title) ?></h2>
 
-    <p>
-        <?= Html::a('Create Dispositivo', ['create'], ['class' => 'btn btn-success']) ?>
+    <p align="right">
+        <?= Html::a('+', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -38,6 +36,4 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-
-
 </div>

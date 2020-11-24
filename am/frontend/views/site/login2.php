@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="center-screen">
         <h5 style="text-align: center">Please fill out the following fields to login:</h5>
         <div class="row">
-            <div >
+            <div>
                 <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
                 <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
