@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1de8aaa-f5ee-4ec3-9032-ce986d56baad" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/am/frontend/views/avaria/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/views/avaria/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/views/avaria/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/views/avaria/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/views/dispositivo/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/views/dispositivo/_form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/views/dispositivo/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/views/dispositivo/create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/views/dispositivo/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/views/dispositivo/update.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/am/common/models/Utilizador.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/backend/config/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/backend/config/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/common/models/LoginForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/common/models/LoginForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/common/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/common/models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/config/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/config/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/models/Utilizador.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/am/frontend/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/views/layouts/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/web/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/web/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/views/site/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/views/site/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/views/site/login2.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/views/site/login2.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,12 +122,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../am_api_2190788_2190778/am_api" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\web_psi_2190788_2190778\am\common\models" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -135,6 +145,11 @@
       <updated>1606155557477</updated>
       <workItem from="1606155558778" duration="32000" />
       <workItem from="1606155592417" duration="6809000" />
+      <workItem from="1607654666023" duration="632000" />
+      <workItem from="1607876876638" duration="335000" />
+      <workItem from="1608055052796" duration="56000" />
+      <workItem from="1608303507194" duration="3164000" />
+      <workItem from="1608563599775" duration="5517000" />
     </task>
     <servers />
   </component>
@@ -142,14 +157,23 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1606155588980">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1606155588980" />
-    <state x="455" y="2" width="1008" height="1037" key="search.everywhere.popup" timestamp="1606168812060">
+    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1608305114237">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1606157681512" />
+    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1280.680@0.0.1920.1040" timestamp="1608305114237" />
+    <state x="632" y="147" key="FileChooserDialogImpl" timestamp="1608304064974">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1606155588980" />
+    <state x="632" y="147" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1280.680@0.0.1920.1040" timestamp="1608304064974" />
+    <state x="392" y="64" key="NewPhpClassDialog" timestamp="1608565842462">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="392" y="64" key="NewPhpClassDialog/0.0.1280.680@0.0.1280.680" timestamp="1608565842462" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1608568713465">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1608568713465" />
     <state x="455" y="2" width="1008" height="1037" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1280.680@0.0.1920.1040" timestamp="1606168812060" />
   </component>
 </project>

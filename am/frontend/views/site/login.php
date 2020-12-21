@@ -10,6 +10,7 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<div class="center-screen">
 <div class="site-login">
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -19,9 +20,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+                <?= $form->field($model, 'nomeUtilizador')->textInput(['autofocus' => true]) ?>
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
+                <?= $form->field($model, 'palavraPasse')->passwordInput() ?>
 
                 <?= $form->field($model, 'rememberMe')->checkbox() ?>
 
@@ -40,4 +41,5 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     </div>
     </div>
+</div>
 
