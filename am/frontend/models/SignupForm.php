@@ -1,6 +1,7 @@
 <?php
 namespace frontend\models;
 
+use common\models\Utilizador;
 use Yii;
 use yii\base\Model;
 use common\models\User;
@@ -48,8 +49,8 @@ class SignupForm extends Model
             return null;
         }
         
-        $user = new User();
-        $user->username = $this->username;
+        $user = new Utilizador();
+        $user->nomeUtilizador = $this->username;
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();
@@ -63,17 +64,15 @@ class SignupForm extends Model
      * @param User $user user model to with email should be send
      * @return bool whether the email was sent
      */
-    protected function sendEmail($user)
+    private function SendEmail($idValidacao, $email)
     {
-        return Yii::$app
-            ->mailer
-            ->compose(
-                ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
-                ['user' => $user]
-            )
-            ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])
-            ->setTo($this->email)
-            ->setSubject('Account registration at ' . Yii::$app->name)
-            ->send();
+        $strMsg="Clique para validar: http://localhost:8888/utilizadores/validacao/".
+            $idValidacao;
+        return (Yii::$app->mailer->compose()
+            ->setFrom('meumail@gmail.com')
+            ->setTo($email)
+            ->setSubject('Validacao SIS')
+            ->setTextBody($strMsg)
+            ->send());
     }
 }

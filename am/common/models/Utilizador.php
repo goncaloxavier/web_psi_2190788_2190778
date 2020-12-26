@@ -9,15 +9,18 @@ use yii\web\IdentityInterface;
  * This is the model class for table "utilizador".
  *
  * @property int $idUtilizador
- * @property string $nome
  * @property string $nomeUtilizador
  * @property string $palavraPasse
  * @property string $email
+ * @property string $tipo
  * @property int $estado
  * @property string $idValidacao
  */
 class Utilizador extends \yii\db\ActiveRecord implements IdentityInterface
 {
+    public $tipo_array = array('Tecnico', 'Funcionario');
+    public $estado_array = array('Ativo', 'Inativo');
+
     /**
      * {@inheritdoc}
      */
@@ -32,9 +35,8 @@ class Utilizador extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['nome', 'nomeUtilizador', 'palavraPasse', 'email'], 'required'],
+            [['nomeUtilizador', 'email', 'tipo'], 'required'],
             [['estado'], 'integer'],
-            [['nome'], 'string', 'max' => 100],
             [['nomeUtilizador'], 'string', 'max' => 20],
             [['palavraPasse'], 'string', 'max' => 18],
             [['email'], 'string', 'max' => 50],
@@ -49,13 +51,17 @@ class Utilizador extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             'idUtilizador' => 'Id Utilizador',
-            'nome' => 'Nome',
             'nomeUtilizador' => 'Nome Utilizador',
             'palavraPasse' => 'Palavra Passe',
             'email' => 'Email',
+            'tipo' => 'Tipo',
             'estado' => 'Estado',
             'idValidacao' => 'Id Validacao',
         ];
+    }
+
+    public function setPassword($password){
+        $this->palavraPasse = $password;
     }
 
     public static function findIdentity($id)
