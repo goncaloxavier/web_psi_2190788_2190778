@@ -6,11 +6,33 @@ namespace frontend\controllers;
 
 use app\models\Avaria;
 use app\models\Estatistica;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii;
 
 class EstatisticaController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index', 'view', 'create', 'delete'],
+                        'allow' => false,
+                        'roles' => ['funcionario'],
+                    ],
+                    [
+                        'actions' => ['index', 'view', 'create', 'delete'],
+                        'allow' => true,
+                        'roles' => ['tecnico'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
     public function actionIndex(){
         $request = Yii::$app->request;
         $model = new Estatistica();

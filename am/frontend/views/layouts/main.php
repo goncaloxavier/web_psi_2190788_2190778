@@ -69,6 +69,19 @@ AppAsset::register($this);
             . Html::endForm()
             . '</li>';
     }
+    else{
+        $menuItems = [
+            ['label' => 'Avaria', 'url' => ['/avaria/index']],
+        ];
+        $menuItems[] = '<li>'
+            . Html::beginForm(['/site/logout'], 'post')
+            . Html::submitButton(
+                'Logout (' . Yii::$app->user->identity->nomeUtilizador. ')',
+                ['class' => 'btn btn-link logout']
+            )
+            . Html::endForm()
+            . '</li>';
+    }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,

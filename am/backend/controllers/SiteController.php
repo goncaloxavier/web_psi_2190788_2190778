@@ -26,9 +26,14 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
+                    ],
+                    [
+                        'actions' => ['index'],
+                        'allow' => false,
+                        'roles' => ['funcionario'],
                     ],
                 ],
             ],
@@ -80,7 +85,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
-            $model->password = '';
+            $model->palavraPasse = '';
 
             return $this->render('login', [
                 'model' => $model,

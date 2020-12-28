@@ -8,8 +8,11 @@ use app\models\Avaria;
 use app\models\AvariaSearch;
 use yii\base\Model;
 use yii\web\Controller;
+use yii\web\ForbiddenHttpException;
+use yii\web\HttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\rbac\ManagerInterface;
 
 /**
  * AvariaController implements the CRUD actions for Avaria model.
@@ -97,14 +100,17 @@ class AvariaController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        if (\Yii::$app->user->can('updateOwnAvaria', ['avaria' => $model]) || Yii::$app->user->identity->tipo != 1) {
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->idAvaria]);
+            }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idAvaria]);
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }else{
+            throw new ForbiddenHttpException("You are not allowed to perform this action.");
         }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
     }
 
     /**
@@ -116,20 +122,22 @@ class AvariaController extends Controller
      */
     public function actionDelete($id)
     {
-        $query = Avaria::find()->where(['idDispositivo' => $this->findModel($id)->idDispositivo , 'gravidade' => 0])->count();
-        var_dump($query);
-
-        if ($query != '1'){
-            $this->findModel($id)->delete();
-            return $this->redirect(['avaria/index']);
+        $model = $this->findModel($id);
+        if (\Yii::$app->user->can('updateOwnAvaria', ['avaria' => $model]) || Yii::$app->user->identity->tipo != 1) {
+            $query = Avaria::find()->where(['idDispositivo' => $this->findModel($id)->idDispositivo , 'gravidade' => 0])->count();
+            if ($query != '1'){
+                $this->findModel($id)->delete();
+                return $this->redirect(['avaria/index']);
+            }else{
+                $dispositivo = $this->findModel($id)->idDispositivo0;
+                $dispositivo->estado = 1;
+                $dispositivo->save();
+                $this->findModel($id)->delete();
+                return $this->redirect(['avaria/index']);
+            }
         }else{
-            $dispositivo = $this->findModel($id)->idDispositivo0;
-            $dispositivo->estado = 1;
-            $dispositivo->save();
-            $this->findModel($id)->delete();
-            return $this->redirect(['avaria/index']);
+            throw new ForbiddenHttpException("You are not allowed to perform this action.");
         }
-
 
     }
 

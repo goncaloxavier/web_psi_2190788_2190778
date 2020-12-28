@@ -36,13 +36,10 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'components' => [
-            'authManager' => [
-                'class' => 'yii\rbac\DbManager',
-                // uncomment if you want to cache RBAC items hierarchy
-                // 'cache' => 'cache',
-            ],
-            // ...
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+            // uncomment if you want to cache RBAC items hierarchy
+            // 'cache' => 'cache',
         ],
         'urlManager' => [
             'class' => 'yii\web\UrlManager',

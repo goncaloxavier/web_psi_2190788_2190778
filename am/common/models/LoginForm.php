@@ -4,6 +4,7 @@ namespace common\models;
 use common\models\Utilizador;
 use Yii;
 use yii\base\Model;
+use yii\web\ForbiddenHttpException;
 
 /**
  * Login form
