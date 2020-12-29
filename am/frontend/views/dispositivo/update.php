@@ -10,9 +10,8 @@ $this->params['breadcrumbs'][] = ['label' => 'Dispositivos', 'url' => ['index']]
 $this->params['breadcrumbs'][] = ['label' => $model->idDispositivo, 'url' => ['view', 'id' => $model->idDispositivo]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="dispositivo-update">
-
-    <h2 align="left"><?= Html::encode($this->title) ?></h2>
+<h2 align="left"><?= Html::encode($this->title) ?></h2>
+<div class="dispositivo-update" align="center">
 
     <?= $this->render('_form', [
         'model' => $model,

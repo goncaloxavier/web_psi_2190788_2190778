@@ -10,7 +10,7 @@ use app\models\Dispositivo;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="center-screen">
+<div align="center">
     <?php $form = ActiveForm::begin(); ?>
     <table style="width: 300px">
         <tr>

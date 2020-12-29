@@ -9,9 +9,8 @@ $this->title = 'Create Dispositivo';
 $this->params['breadcrumbs'][] = ['label' => 'Dispositivos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="dispositivo-create">
-
-    <h2 align="left"><?= Html::encode($this->title) ?></h2>
+<h2 align="left"><?= Html::encode($this->title) ?></h2>
+<div class="dispositivo-create" align="center">
 
     <?= $this->render('_form', [
         'model' => $model,

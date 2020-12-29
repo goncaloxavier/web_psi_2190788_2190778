@@ -10,10 +10,8 @@ $this->params['breadcrumbs'][] = ['label' => 'Avarias', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->idAvaria, 'url' => ['view', 'id' => $model->idAvaria]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="avaria-update">
-
-    <h2><?= Html::encode($this->title) ?></h2>
-
+<h2><?= Html::encode($this->title) ?></h2>
+<div class="avaria-update" align="center">
     <?= $this->render('_formUpdate', [
         'model' => $model,
     ]) ?>
