@@ -11,9 +11,9 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * RelatorioPecaController implements the CRUD actions for RelatorioPeca model.
+ * RelatoriopecaController implements the CRUD actions for RelatorioPeca model.
  */
-class RelatorioPecaController extends Controller
+class RelatoriopecaController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -25,12 +25,12 @@ class RelatorioPecaController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index', 'view', 'create', 'delete'],
+                        'actions' => ['index', 'view', 'update', 'create', 'delete'],
                         'allow' => false,
                         'roles' => ['funcionario'],
                     ],
                     [
-                        'actions' => ['index', 'view', 'create', 'delete'],
+                        'actions' => ['index', 'view', 'update','create', 'delete'],
                         'allow' => true,
                         'roles' => ['tecnico'],
                     ],

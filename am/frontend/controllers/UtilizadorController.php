@@ -25,13 +25,13 @@ class UtilizadorController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index', 'view', 'create', 'delete'],
+                        'actions' => ['index', 'view', 'update', 'create', 'delete'],
                         'allow' => false,
                         'roles' => ['funcionario'],
                     ],
                     [
-                        'actions' => ['index', 'view', 'create', 'delete'],
-                        'allow' => true,
+                        'actions' => ['index', 'view', 'update','create', 'delete'],
+                        'allow' => false,
                         'roles' => ['tecnico'],
                     ],
                 ],

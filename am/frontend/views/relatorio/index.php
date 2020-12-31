@@ -14,23 +14,26 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Create Relatorio', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
             'idRelatorio',
             'idAvaria',
-            'idDispositivo',
+            [
+                'attribute' => 'idDispositivo',
+                'label' => 'Dispositivo',
+                'value' => function ($model) {
+                    return $model->idAvaria0->idDispositivo0->referencia;
+                },
+            ],
             'descricao',
-
+            [
+                'attribute' => 'idUtilizador',
+                'label' => 'Autor',
+                'value' => function ($model) {
+                    return $model->getAutor();
+                },
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

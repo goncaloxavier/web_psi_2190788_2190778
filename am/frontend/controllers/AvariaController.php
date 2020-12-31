@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use app\models\Dispositivo;
+use app\models\Relatorio;
 use Yii;
 use app\models\Avaria;
 use app\models\AvariaSearch;
@@ -30,12 +31,12 @@ class AvariaController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index', 'view', 'create', 'delete'],
+                        'actions' => ['index', 'view', 'update', 'create', 'delete'],
                         'allow' => true,
                         'roles' => ['funcionario'],
                     ],
                     [
-                        'actions' => ['index', 'view', 'create', 'delete'],
+                        'actions' => ['index', 'view', 'update','create', 'delete'],
                         'allow' => true,
                         'roles' => ['tecnico'],
                     ],
@@ -85,13 +86,6 @@ class AvariaController extends Controller
         $model->data = date("Y-m-d H:i:s");
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $dispositivo = $model->idDispositivo0;
-            if($model->gravidade == 0){
-                $dispositivo->estado = 0;
-            }else{
-                $dispositivo->estado = 1;
-            }
-            $dispositivo->save();
             return $this->redirect(['view', 'id' => $model->idAvaria]);
         }
 
@@ -112,7 +106,12 @@ class AvariaController extends Controller
         $model = $this->findModel($id);
         if (\Yii::$app->user->can('updateOwnAvaria', ['avaria' => $model]) || Yii::$app->user->identity->tipo != 1) {
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->idAvaria]);
+                if($model->estado == 3 && Relatorio::find()->where(["idAvaria" => $id])){
+                    $this->redirect(['relatorio/create', 'idAvaria' => $model->idAvaria]);
+                }
+                else{
+                    return $this->redirect(['view', 'id' => $model->idAvaria]);
+                }
             }
 
             return $this->render('update', [
@@ -121,7 +120,7 @@ class AvariaController extends Controller
         }else{
             throw new ForbiddenHttpException("You are not allowed to perform this action.");
         }
-    }
+   }
 
     /**
      * Deletes an existing Avaria model.
@@ -134,17 +133,8 @@ class AvariaController extends Controller
     {
         $model = $this->findModel($id);
         if (\Yii::$app->user->can('updateOwnAvaria', ['avaria' => $model]) || Yii::$app->user->identity->tipo != 1) {
-            $query = Avaria::find()->where(['idDispositivo' => $this->findModel($id)->idDispositivo , 'gravidade' => 0])->count();
-            if ($query != '1'){
-                $this->findModel($id)->delete();
-                return $this->redirect(['avaria/index']);
-            }else{
-                $dispositivo = $this->findModel($id)->idDispositivo0;
-                $dispositivo->estado = 1;
-                $dispositivo->save();
-                $this->findModel($id)->delete();
-                return $this->redirect(['avaria/index']);
-            }
+            $this->findModel($id)->delete();
+            return $this->redirect(['avaria/index']);
         }else{
             throw new ForbiddenHttpException("You are not allowed to perform this action.");
         }

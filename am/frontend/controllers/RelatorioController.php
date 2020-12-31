@@ -2,6 +2,9 @@
 
 namespace frontend\controllers;
 
+use app\models\Avaria;
+use app\models\Relatoriopeca;
+use common\models\Utilizador;
 use Yii;
 use app\models\Relatorio;
 use app\models\RelatorioSearch;
@@ -25,12 +28,12 @@ class RelatorioController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index', 'view', 'create', 'delete'],
+                        'actions' => ['index', 'view', 'update', 'create', 'delete'],
                         'allow' => false,
                         'roles' => ['funcionario'],
                     ],
                     [
-                        'actions' => ['index', 'view', 'create', 'delete'],
+                        'actions' => ['index', 'view', 'update','create', 'delete'],
                         'allow' => true,
                         'roles' => ['tecnico'],
                     ],
@@ -72,9 +75,17 @@ class RelatorioController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($idAvaria)
     {
         $model = new Relatorio();
+
+        $model->idAvaria = $idAvaria;
+        $modelAvaria = Avaria::findOne($idAvaria);
+        $model->idDispositivo = $modelAvaria->idDispositivo;
+        $utilizador = Utilizador::findOne($modelAvaria->idUtilizador);
+        $model->autor = $utilizador->nomeUtilizador;
+        $model->descricaoA = $modelAvaria->descricao;
+        $model->idUtilizador = Yii::$app->user->getId();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->idRelatorio]);
@@ -95,8 +106,16 @@ class RelatorioController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $modelAvaria = Avaria::findOne($model->idAvaria);
+        $utilizador = Utilizador::findOne($modelAvaria->idUtilizador);
+        $model->autor = $utilizador->nomeUtilizador;
+        $model->descricaoA = $modelAvaria->descricao;
+        $model->listPecas = $model->getRelatedPecas();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $post = Yii::$app->request->post('Relatorio');
+            $model->listPecas = $post['listPecas'];
+            $model->save();
             return $this->redirect(['view', 'id' => $model->idRelatorio]);
         }
 

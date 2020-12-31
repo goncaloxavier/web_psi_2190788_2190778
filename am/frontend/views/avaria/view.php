@@ -12,10 +12,14 @@ $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="avaria-view">
-
-    <h2><?= Html::encode($this->title) ?></h2>
-
     <p>
+        <?php
+            if($model->idRelatorio != null && $model->estado == 3){
+                echo Html::a('Relatorio', ['relatorio/view', 'id' => $model->idRelatorio], ['class' => 'btn btn-primary']);
+            }elseif($model->idRelatorio == null && $model->estado == 3){
+                echo Html::a('Relatorio', ['relatorio/create', 'idAvaria' => $model->idAvaria], ['class' => 'btn btn-primary']);
+            }
+        ?>
         <?= Html::a('Update', ['update', 'id' => $model->idAvaria], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->idAvaria], [
             'class' => 'btn btn-danger',

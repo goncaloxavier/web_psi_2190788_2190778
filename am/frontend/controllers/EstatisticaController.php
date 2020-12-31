@@ -19,12 +19,12 @@ class EstatisticaController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index', 'view', 'create', 'delete'],
+                        'actions' => ['index', 'view', 'update', 'create', 'delete'],
                         'allow' => false,
                         'roles' => ['funcionario'],
                     ],
                     [
-                        'actions' => ['index', 'view', 'create', 'delete'],
+                        'actions' => ['index', 'view', 'update','create', 'delete'],
                         'allow' => true,
                         'roles' => ['tecnico'],
                     ],
