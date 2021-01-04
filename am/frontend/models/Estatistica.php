@@ -5,6 +5,7 @@ use app\models\Avaria;
 use app\models\Dispositivo;
 use app\models\Peca;
 
+
 class Estatistica extends \yii\db\ActiveRecord
 {
     public $nAvaria;
@@ -74,6 +75,37 @@ class Estatistica extends \yii\db\ActiveRecord
         }else{
             $query = Dispositivo::find()->where(['month(dataCompra)'=>$mes, 'estado' => 0])->count();
             return $query;
+        }
+    }
+
+    public function getTotalPecas($mes){
+        $total = 0;
+        if($mes == null){
+            $model = Peca::find()->all();
+            foreach ($model as $peca){
+                if(sizeof($peca->relatoriopecas) != 0){
+                    $total += $peca->custo;
+                }
+            }
+
+            return $total;
+        }else{
+            $modelAvaria = Avaria::find()->where(['month(data)'=>$mes])->all();
+            $model = Peca::find()->all();
+
+            foreach ($modelAvaria as $avaria){
+                if($avaria->idRelatorio != null){
+                    foreach ($model as $peca){
+                        for($i = 0; $i < sizeof($peca->relatoriopecas); $i++){
+                            if($peca->relatoriopecas[$i]->idRelatorio == $avaria->idRelatorio){
+                                $total += $peca->custo;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return $total;
         }
     }
 

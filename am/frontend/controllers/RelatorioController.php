@@ -37,6 +37,11 @@ class RelatorioController extends Controller
                         'allow' => true,
                         'roles' => ['tecnico'],
                     ],
+                    [
+                        'actions' => ['index', 'view', 'update','create', 'delete'],
+                        'allow' => true,
+                        'roles' => ['admin'],
+                    ],
                 ],
             ],
         ];
@@ -87,7 +92,10 @@ class RelatorioController extends Controller
         $model->descricaoA = $modelAvaria->descricao;
         $model->idUtilizador = Yii::$app->user->getId();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $post = Yii::$app->request->post('Relatorio');
+            $model->listPecas = $post['listPecas'];
+            $model->save();
             return $this->redirect(['view', 'id' => $model->idRelatorio]);
         }
 

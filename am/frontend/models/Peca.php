@@ -11,7 +11,7 @@ use Yii;
  * @property string $descricao
  * @property float $custo
  *
- * @property Relatoriopecas[] $relatoriopecas
+ * @property Relatoriopeca[] $relatoriopecas
  */
 class Peca extends \yii\db\ActiveRecord
 {
@@ -54,6 +54,6 @@ class Peca extends \yii\db\ActiveRecord
      */
     public function getRelatoriopecas()
     {
-        return $this->hasMany(Relatoriopecas::className(), ['idPeca' => 'idPeca']);
+        return $this->hasMany(Relatoriopeca::className(), ['idPeca' => 'idPeca']);
     }
 }

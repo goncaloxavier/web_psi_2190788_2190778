@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Utilizador */
+/* @var $model common\models\Utilizador */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -22,7 +22,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'estado')->textInput() ?>
 
-    <?= $form->field($model, 'idValidacao')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'idValidacao')->textInput(['maxlength' => true])->hiddenInput()->label(false) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

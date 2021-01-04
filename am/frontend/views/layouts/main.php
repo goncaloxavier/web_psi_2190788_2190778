@@ -38,28 +38,12 @@ AppAsset::register($this);
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     }
-    elseif(Yii::$app->user->identity->tipo == 0){
+    elseif(Yii::$app->user->identity->tipo == 1 || Yii::$app->user->identity->tipo == 2){
         $menuItems = [
-            ['label' => 'Avaria', 'url' => ['/avaria/index']],
-            ['label' => 'Dispositivo', 'url' => ['/dispositivo/index']],
-            ['label' => 'Estatistica', 'url' => ['/estatistica/index']],
-            ['label' => 'Utilizadores', 'url' => ['/utilizador/index']],
-        ];
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->nomeUtilizador. ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-    elseif(Yii::$app->user->identity->tipo == 2) {
-        $menuItems = [
-            ['label' => 'Avaria', 'url' => ['/avaria/index']],
-            ['label' => 'Dispositivo', 'url' => ['/dispositivo/index']],
-            ['label' => 'Relatorio', 'url' => ['/relatorio/index']],
-            ['label' => 'Estatistica', 'url' => ['/estatistica/index']],
+            ['label' => 'Avarias', 'url' => ['/avaria/index']],
+            ['label' => 'Dispositivos', 'url' => ['/dispositivo/index']],
+            ['label' => 'Relatorios', 'url' => ['/relatorio/index']],
+            ['label' => 'Estatisticas', 'url' => ['/estatistica/index']],
         ];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
@@ -72,7 +56,7 @@ AppAsset::register($this);
     }
     else{
         $menuItems = [
-            ['label' => 'Avaria', 'url' => ['/avaria/index']],
+            ['label' => 'Avarias', 'url' => ['/avaria/index']],
         ];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')

@@ -32,8 +32,8 @@ class SiteController extends Controller
                     ],
                     [
                         'actions' => ['index'],
-                        'allow' => false,
-                        'roles' => ['funcionario'],
+                        'allow' => true,
+                        'roles' => ['admin'],
                     ],
                 ],
             ],
@@ -65,7 +65,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->redirect(['utilizador/index', 'estado' => 1]);
     }
 
     /**

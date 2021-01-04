@@ -40,6 +40,11 @@ class AvariaController extends Controller
                         'allow' => true,
                         'roles' => ['tecnico'],
                     ],
+                    [
+                        'actions' => ['index', 'view', 'update','create', 'delete'],
+                        'allow' => true,
+                        'roles' => ['admin'],
+                    ],
                 ],
             ],
         ];
@@ -104,12 +109,11 @@ class AvariaController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        if (\Yii::$app->user->can('updateOwnAvaria', ['avaria' => $model]) || Yii::$app->user->identity->tipo != 1) {
+        if (\Yii::$app->user->can('updateOwnAvaria', ['avaria' => $model]) || Yii::$app->user->identity->tipo != 0) {
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                if($model->estado == 3 && Relatorio::find()->where(["idAvaria" => $id])){
+                if($model->estado == 3 && $model->idRelatorio == null){
                     $this->redirect(['relatorio/create', 'idAvaria' => $model->idAvaria]);
-                }
-                else{
+                }else{
                     return $this->redirect(['view', 'id' => $model->idAvaria]);
                 }
             }
@@ -132,7 +136,7 @@ class AvariaController extends Controller
     public function actionDelete($id)
     {
         $model = $this->findModel($id);
-        if (\Yii::$app->user->can('updateOwnAvaria', ['avaria' => $model]) || Yii::$app->user->identity->tipo != 1) {
+        if (\Yii::$app->user->can('updateOwnAvaria', ['avaria' => $model]) || Yii::$app->user->identity->tipo != 0) {
             $this->findModel($id)->delete();
             return $this->redirect(['avaria/index']);
         }else{

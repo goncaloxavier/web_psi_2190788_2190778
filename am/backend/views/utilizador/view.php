@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\Utilizador */
 
 $this->title = $model->idUtilizador;
-$this->params['breadcrumbs'][] = ['label' => 'Utilizadors', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Utilizadores', 'url' => ['index', 'estado' => 1]];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -33,9 +33,30 @@ $this->params['breadcrumbs'][] = $this->title;
             'nomeUtilizador',
             'palavraPasse',
             'email:email',
-            'tipo',
-            'estado',
-            'idValidacao',
+            [
+                'attribute' => 'tipo',
+                'label' => 'Tipo',
+                'value' => function($model){
+                    switch ($model->tipo){
+                        case 0:
+                            return 'funcionario';
+                        case 1:
+                            return 'tecnico';
+                    }
+                },
+            ],
+            [
+                'attribute' => 'estado',
+                'label' => 'Estado',
+                'value' => function($model){
+                    switch ($model->estado){
+                        case 0:
+                            return 'Inativo';
+                        case 1:
+                            return 'Ativo';
+                    }
+                },
+            ],
         ],
     ]) ?>
 

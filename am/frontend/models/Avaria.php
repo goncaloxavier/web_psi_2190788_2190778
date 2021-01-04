@@ -129,6 +129,11 @@ class Avaria extends \yii\db\ActiveRecord
     {
         $query = "SELECT * FROM AVARIA WHERE idAvaria != ".$this->idAvaria." and idDispositivo = ".$this->idDispositivo." and (estado = 1 or estado = 2) and gravidade = 0";
 
+        if($this->idRelatorio != null){
+            $modelRelatorio = Relatorio::findOne($this->idRelatorio);
+            $modelRelatorio->delete();
+        }
+
         if(($this->estado != 3 && ($this->gravidade == 0 || $this->gravidade == 1)) && !Avaria::findBySql($query)->all()){
             $this->idDispositivo0->estado = 1;
         }else{

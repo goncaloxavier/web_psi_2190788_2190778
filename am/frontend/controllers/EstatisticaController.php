@@ -28,6 +28,11 @@ class EstatisticaController extends Controller
                         'allow' => true,
                         'roles' => ['tecnico'],
                     ],
+                    [
+                        'actions' => ['index', 'view', 'update','create', 'delete'],
+                        'allow' => true,
+                        'roles' => ['admin'],
+                    ],
                 ],
             ],
         ];
@@ -42,7 +47,7 @@ class EstatisticaController extends Controller
             switch ($model->filtro){
                 case '0':
                     $model->nAvaria = $model->getnAvaria(null);
-                    $model->custoPeca = $model->getcustoPeca(null);
+                    $model->custoPeca = $model->getTotalPecas(null).'€';
                     $model->nAvariaRes = $model->getnAvariaRes(null);
                     $model->nAvariaNr = $model->getnAvariaNr(null);
                     $model->nDispositivoF = $model->getnDispositivoF(null);
@@ -52,7 +57,7 @@ class EstatisticaController extends Controller
                     if(isset($option['mes'])){
                         $model->mes = $option['mes'];
                         $model->nAvaria = $model->getnAvaria(($model->mes+1));
-                        $model->custoPeca = $model->getcustoPeca(($model->mes+1));
+                        $model->custoPeca = $model->getTotalPecas(($model->mes+1)).'€';
                         $model->nAvariaRes = $model->getnAvariaRes(($model->mes+1));
                         $model->nAvariaNr = $model->getnAvariaNr(($model->mes+1));
                         $model->nDispositivoF = $model->getnDispositivoF(($model->mes+1));
@@ -60,7 +65,7 @@ class EstatisticaController extends Controller
                     }else{
                         $model->mes = 0;
                         $model->nAvaria = $model->getnAvaria(($model->mes+1));
-                        $model->custoPeca = $model->getcustoPeca(($model->mes+1));
+                        $model->custoPeca = $model->getTotalPecas(($model->mes+1)).'€';
                         $model->nAvariaRes = $model->getnAvariaRes(($model->mes+1));
                         $model->nAvariaNr = $model->getnAvariaNr(($model->mes+1));
                         $model->nDispositivoF = $model->getnDispositivoF(($model->mes+1));
@@ -70,7 +75,7 @@ class EstatisticaController extends Controller
             }
         }else{
             $model->nAvaria = $model->getnAvaria(null);
-            $model->custoPeca = $model->getcustoPeca(null);
+            $model->custoPeca = $model->getTotalPecas(null).'€';
             $model->nAvariaRes = $model->getnAvariaRes(null);
             $model->nAvariaNr = $model->getnAvariaNr(null);
             $model->nDispositivoF = $model->getnDispositivoF(null);

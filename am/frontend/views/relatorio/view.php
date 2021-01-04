@@ -44,6 +44,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->getAutor();
                 },
             ],
+            [
+                'attribute' => 'totalPeca',
+                'lable' => 'Total',
+                'value' => function ($model) {
+                    return $model->getCustoPeca()."€";
+                },
+            ]
         ],
     ]) ?>
     <table style="font-family: arial, sans-serif; border-collapse: collapse;">

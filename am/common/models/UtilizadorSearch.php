@@ -38,9 +38,9 @@ class UtilizadorSearch extends Utilizador
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $estado)
     {
-        $query = self::findBySql("SELECT * FROM UTILIZADOR WHERE TIPO != 3 AND ESTADO = 1");
+        $query = self::findBySql("SELECT * FROM UTILIZADOR WHERE TIPO != 2 AND ESTADO = ".$estado);
 
         // add conditions that should always apply here
 

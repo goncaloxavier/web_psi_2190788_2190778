@@ -34,6 +34,11 @@ class PecaController extends Controller
                         'allow' => true,
                         'roles' => ['tecnico'],
                     ],
+                    [
+                        'actions' => ['index', 'view', 'update','create', 'delete'],
+                        'allow' => true,
+                        'roles' => ['admin'],
+                    ],
                 ],
             ],
         ];

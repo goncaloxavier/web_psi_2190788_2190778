@@ -2,10 +2,13 @@
 
 namespace backend\controllers;
 
+use app\models\Dispositivo;
 use Yii;
 use common\models\Utilizador;
 use common\models\UtilizadorSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -20,10 +23,24 @@ class UtilizadorController extends Controller
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index', 'view', 'update', 'create', 'delete'],
+                        'allow' => false,
+                        'roles' => ['funcionario'],
+                    ],
+                    [
+                        'actions' => ['index', 'view', 'update','create', 'delete'],
+                        'allow' => false,
+                        'roles' => ['tecnico'],
+                    ],
+                    [
+                        'actions' => ['index', 'view', 'update','create', 'delete'],
+                        'allow' => true,
+                        'roles' => ['admin'],
+                    ],
                 ],
             ],
         ];
@@ -33,14 +50,15 @@ class UtilizadorController extends Controller
      * Lists all Utilizador models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($estado)
     {
         $searchModel = new UtilizadorSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $estado);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'estado' => $estado
         ]);
     }
 
@@ -91,8 +109,6 @@ class UtilizadorController extends Controller
     {
         $model = $this->findModel($id);
 
-        $this->setRole($model);
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->idUtilizador]);
         }
@@ -111,8 +127,14 @@ class UtilizadorController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $user = $this->findModel($id);
 
+        if($user->tipo == 2){
+            throw new ForbiddenHttpException("You are not allowed to perform this action.");
+        }else{
+           $user->estado = 0;
+           $user->save();
+        }
         return $this->redirect(['index']);
     }
 

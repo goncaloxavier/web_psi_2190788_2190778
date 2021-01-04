@@ -7,33 +7,34 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\UtilizadorSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Utilizadors';
+$this->title = 'Listagem de Utilizadores';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="utilizador-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Create Utilizador', ['create'], ['class' => 'btn btn-success']) ?>
+    <p align="right">
+        <?php
+        if($estado == 1){
+            echo Html::a('Inativos', ['index', 'estado' => 0], ['class' => 'btn btn-primary']);
+        }else{
+            echo Html::a('Ativos', ['index', 'estado' => 1], ['class' => 'btn btn-primary']);
+        }
+        ?>
+        <?= Html::a('+', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
             'idUtilizador',
             'nomeUtilizador',
             'palavraPasse',
             'email:email',
             'tipo',
-            //'estado',
-            //'idValidacao',
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

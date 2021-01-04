@@ -34,10 +34,6 @@ $mes = array('Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agos
                 'label' => 'Numero de Avarias'
             ],
             [
-                'attribute' => 'custoPeca',
-                'label' => 'Custo de Peças (Total)'
-            ],
-            [
                 'attribute' => 'nAvariaRes',
                 'label' => 'Numero de Avarias Resolvidas'
             ],
@@ -52,6 +48,10 @@ $mes = array('Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agos
             [
                 'attribute' => 'nDispositivoNF',
                 'label' => 'Numero de Dispositivos Nao Funcionais'
+            ],
+            [
+                'attribute' => 'custoPeca',
+                'label' => 'Custo de Peças (Total)'
             ],
         ],
     ]);

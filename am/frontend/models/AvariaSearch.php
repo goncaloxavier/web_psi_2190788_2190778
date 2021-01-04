@@ -2,9 +2,10 @@
 
 namespace app\models;
 
+use app\models\Avaria;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Avaria;
+
 
 /**
  * AvariaSearch represents the model behind the search form of `app\models\Avaria`.
@@ -41,7 +42,17 @@ class AvariaSearch extends Avaria
      */
     public function search($params)
     {
-        $query = Avaria::findBySql("SELECT * FROM avaria WHERE avaria.estado IN (3,2,1, 0) ORDER BY FIELD(avaria.estado,0,1,2,3), data desc");
+
+        if(\Yii::$app->user->identity->tipo == 0){
+            $query = Avaria::findBySql("SELECT * FROM avaria 
+                    WHERE avaria.estado IN (3,2,1, 0) 
+                    and idUtilizador = ".\Yii::$app->user->identity->idUtilizador." 
+                    ORDER BY FIELD(avaria.estado,0,1,2,3), data desc");
+        }else{
+            $query = Avaria::findBySql("SELECT * FROM avaria 
+                    WHERE avaria.estado IN (3,2,1, 0) 
+                    ORDER BY FIELD(avaria.estado,0,1,2,3), data desc");
+        }
 
         // add conditions that should always apply here
 
