@@ -69,7 +69,6 @@
       <path value="$PROJECT_DIR$/am/vendor/bower-asset/inputmask" />
       <path value="$PROJECT_DIR$/am/vendor/bower-asset/bootstrap" />
       <path value="$PROJECT_DIR$/am/vendor/guzzlehttp/psr7" />
-      <path value="$PROJECT_DIR$/am/vendor/fzaninotto/faker" />
       <path value="$PROJECT_DIR$/am/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/am/vendor/sebastian/version" />
       <path value="$PROJECT_DIR$/am/vendor/sebastian/type" />
@@ -86,6 +85,17 @@
       <path value="$PROJECT_DIR$/am/vendor/ralouphie/getallheaders" />
       <path value="$PROJECT_DIR$/am/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/am/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/am/vendor/select2/select2" />
+      <path value="$PROJECT_DIR$/am/vendor/kartik-v/yii2-krajee-base" />
+      <path value="$PROJECT_DIR$/am/vendor/codeception/module-db" />
+      <path value="$PROJECT_DIR$/am/vendor/bower-asset/jquery-ui" />
+      <path value="$PROJECT_DIR$/am/vendor/kartik-v/yii2-widget-select2" />
+      <path value="$PROJECT_DIR$/am/vendor/yiisoft/yii2-jui" />
+      <path value="$PROJECT_DIR$/am/vendor/php-webdriver/webdriver" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/am/vendor/codeception/module-webdriver" />
+      <path value="$PROJECT_DIR$/am/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/am/vendor/geckodriver-master/.github" />
     </include_path>
   </component>
 </project>

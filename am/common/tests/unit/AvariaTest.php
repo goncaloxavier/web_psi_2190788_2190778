@@ -3,7 +3,7 @@
 use app\models\Avaria;
 use app\models\Dispositivo;
 
-class AvariaTest extends \Codeception\Test\Unit
+class codAvariaTest extends \Codeception\Test\Unit
 {
     /**
      * @var \common\tests\UnitTester

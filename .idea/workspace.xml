@@ -2,17 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1de8aaa-f5ee-4ec3-9032-ce986d56baad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/am/common/models/Utilizador.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/web_psi_2190788_2190778.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/web_psi_2190788_2190778.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/backend/config/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/backend/config/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/common/models/LoginForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/common/models/LoginForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/common/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/common/models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/config/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/config/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/models/Utilizador.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/views/layouts/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/views/site/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/views/site/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/views/site/login2.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/views/site/login2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/backend/tests/_data/login_data.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/backend/tests/_data/login_data.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/backend/tests/functional/LoginCest.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/backend/tests/functional/LoginCest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/common/fixtures/UserFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/common/fixtures/UserFixture.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/common/tests/_data/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/common/tests/_data/user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/common/tests/unit/AvariaTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/common/tests/unit/AvariaTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/common/tests/unit/models/LoginFormTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/common/tests/unit/models/LoginFormTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/am/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/am/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/tests/_data/login_data.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/tests/_data/login_data.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/tests/acceptance.suite.yml.example" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/tests/acceptance.suite.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/tests/acceptance/HomeCest.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/tests/acceptance/HomeCest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/tests/functional/AboutCest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/tests/functional/ContactCest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/tests/functional/HomeCest.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/tests/functional/HomeCest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/tests/functional/LoginCest.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/tests/functional/LoginCest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/tests/functional/ResendVerificationEmailCest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/tests/functional/SignupCest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/tests/functional/VerifyEmailCest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/tests/unit/models/ContactFormTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/tests/unit/models/PasswordResetRequestFormTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/tests/unit/models/ResendVerificationEmailFormTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/tests/unit/models/ResetPasswordFormTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/tests/unit/models/SignupFormTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/frontend/tests/unit/models/VerifyEmailFormTest.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +111,6 @@
       <path value="$PROJECT_DIR$/am/vendor/bower-asset/inputmask" />
       <path value="$PROJECT_DIR$/am/vendor/bower-asset/bootstrap" />
       <path value="$PROJECT_DIR$/am/vendor/guzzlehttp/psr7" />
-      <path value="$PROJECT_DIR$/am/vendor/fzaninotto/faker" />
       <path value="$PROJECT_DIR$/am/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/am/vendor/sebastian/version" />
       <path value="$PROJECT_DIR$/am/vendor/sebastian/type" />
@@ -112,6 +127,17 @@
       <path value="$PROJECT_DIR$/am/vendor/ralouphie/getallheaders" />
       <path value="$PROJECT_DIR$/am/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/am/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/am/vendor/select2/select2" />
+      <path value="$PROJECT_DIR$/am/vendor/kartik-v/yii2-krajee-base" />
+      <path value="$PROJECT_DIR$/am/vendor/codeception/module-db" />
+      <path value="$PROJECT_DIR$/am/vendor/bower-asset/jquery-ui" />
+      <path value="$PROJECT_DIR$/am/vendor/kartik-v/yii2-widget-select2" />
+      <path value="$PROJECT_DIR$/am/vendor/yiisoft/yii2-jui" />
+      <path value="$PROJECT_DIR$/am/vendor/php-webdriver/webdriver" />
+      <path value="$PROJECT_DIR$/am/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/am/vendor/codeception/module-webdriver" />
+      <path value="$PROJECT_DIR$/am/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/am/vendor/geckodriver-master/.github" />
     </include_path>
   </component>
   <component name="ProjectId" id="1khb1fEDhSztHydFum8APUFWw6X" />
@@ -122,7 +148,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../am_api_2190788_2190778/am_api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -150,6 +176,7 @@
       <workItem from="1608055052796" duration="56000" />
       <workItem from="1608303507194" duration="3164000" />
       <workItem from="1608563599775" duration="5517000" />
+      <workItem from="1609858408019" duration="11629000" />
     </task>
     <servers />
   </component>

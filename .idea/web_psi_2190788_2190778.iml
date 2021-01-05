@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/am/vendor/bower-asset/jquery-ui" />
+      <excludeFolder url="file://$MODULE_DIR$/am/vendor/codeception/module-db" />
+      <excludeFolder url="file://$MODULE_DIR$/am/vendor/codeception/module-webdriver" />
+      <excludeFolder url="file://$MODULE_DIR$/am/vendor/fakerphp/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/am/vendor/geckodriver-master/.github" />
+      <excludeFolder url="file://$MODULE_DIR$/am/vendor/kartik-v/yii2-krajee-base" />
+      <excludeFolder url="file://$MODULE_DIR$/am/vendor/kartik-v/yii2-widget-select2" />
+      <excludeFolder url="file://$MODULE_DIR$/am/vendor/php-webdriver/webdriver" />
+      <excludeFolder url="file://$MODULE_DIR$/am/vendor/select2/select2" />
+      <excludeFolder url="file://$MODULE_DIR$/am/vendor/symfony/process" />
+      <excludeFolder url="file://$MODULE_DIR$/am/vendor/yiisoft/yii2-jui" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
