@@ -15,17 +15,10 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'search') ?>
-
-    <?php // echo $form->field($model, 'data') ?>
-
-    <?php // echo $form->field($model, 'idDispositivo') ?>
-
-    <?php // echo $form->field($model, 'idRelatorio') ?>
+    <?= $form->field($model, 'search')->label('Referencia') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -1,7 +1,8 @@
-suite_namespace: frontend\tests\acceptance
 actor: AcceptanceTester
 modules:
-    enabled:
-        - WebDriver:
-              url: 'http://192.168.1.205:8080/'
-              browser: firefox
+  enabled:
+    - WebDriver:
+        url: 'http://localhost:8080/'
+        window_size: false # disabled in ChromeDriver
+        port: 4444
+        browser: firefox

@@ -2,20 +2,19 @@
 
 namespace app\models;
 
-use app\models\Avaria;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-
-
+use app\models\Dispositivo;
 /**
  * AvariaSearch represents the model behind the search form of `app\models\Avaria`.
  */
 class AvariaSearch extends Avaria
 {
-    public $search;
     /**
      * {@inheritdoc}
      */
+    public $search;
+
     public function rules()
     {
         return [
@@ -40,22 +39,29 @@ class AvariaSearch extends Avaria
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $search)
     {
-
-        if(\Yii::$app->user->identity->tipo == 0){
-            $query = Avaria::findBySql("SELECT * FROM avaria 
-                    WHERE avaria.estado IN (3,2,1, 0) 
+        if($search != null){
+            if($modelDispositivo = Dispositivo::find()->where(['referencia' => $search])->one()){
+                $query = Avaria::find()->where(['idDispositivo' => $modelDispositivo->idDispositivo]);
+            }
+            else{
+                $query = Avaria::find()->where(['idAvaria' => -1]);
+            }
+        }else{
+            if(\Yii::$app->user->identity->tipo == 0){
+                $query = Avaria::findBySql("SELECT * FROM avaria 
+                    WHERE avaria.estado IN (3,2,1,0) 
                     and idUtilizador = ".\Yii::$app->user->identity->idUtilizador." 
                     ORDER BY FIELD(avaria.estado,0,1,2,3), data desc");
-        }else{
-            $query = Avaria::findBySql("SELECT * FROM avaria 
-                    WHERE avaria.estado IN (3,2,1, 0) 
+            }else {
+                $query = Avaria::findBySql("SELECT * FROM avaria 
+                    WHERE avaria.estado IN (3,2,1,0) 
                     ORDER BY FIELD(avaria.estado,0,1,2,3), data desc");
+            }
         }
 
         // add conditions that should always apply here
-
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -67,17 +73,6 @@ class AvariaSearch extends Avaria
             // $query->where('0=1');
             return $dataProvider;
         }
-
-        // grid filtering conditions
-        $query->andFilterWhere([
-            'idAvaria' => $this->idAvaria,
-            'tipo' => $this->tipo,
-            'avaria.estado' => $this->estado,
-            'gravidade' => $this->gravidade,
-            'data' => $this->data,
-            'idDispositivo' => $this->idDispositivo,
-            'idRelatorio' => $this->idRelatorio,
-        ]);
 
         return $dataProvider;
     }

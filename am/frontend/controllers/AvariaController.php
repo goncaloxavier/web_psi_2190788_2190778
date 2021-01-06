@@ -21,6 +21,7 @@ use yii\rbac\ManagerInterface;
  */
 class AvariaController extends Controller
 {
+
     /**
      * {@inheritdoc}
      */
@@ -56,13 +57,28 @@ class AvariaController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new AvariaSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $request = Yii::$app->request;
+        $search = null;
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        if($request->get('AvariaSearch')){
+            $search = $request->get('AvariaSearch');
+
+            $searchModel = new AvariaSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $search);
+
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        }else{
+            $searchModel = new AvariaSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $search);
+
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        }
     }
 
     /**

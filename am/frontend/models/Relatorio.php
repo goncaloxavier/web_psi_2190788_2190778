@@ -80,16 +80,17 @@ class Relatorio extends \yii\db\ActiveRecord
 
     public function getPecas(){
 
-        $listaPecas = Peca::find()->all();
+        if($listaPecas = Peca::find()->all()){
+            $i = 1;
 
-        $i = 1;
+            foreach ($listaPecas as $peca){
+                $list[$i] = $peca->descricao." ".$peca->custo."€";
+                $i++;
+            }
 
-        foreach ($listaPecas as $peca){
-            $list[$i] = $peca->descricao." ".$peca->custo."€";
-            $i++;
+            return $list;
         }
-
-        return $list;
+        return 0;
     }
 
     public function getRelatedPecas(){
@@ -210,12 +211,13 @@ class Relatorio extends \yii\db\ActiveRecord
 
     public function getCustoPeca(){
         $total = 0;
-        $model = Peca::find()->all();
 
-        foreach ($model as $peca){
-            for($i = 0; $i < sizeof($peca->relatoriopecas); $i++){
-                if($peca->relatoriopecas[$i]->idRelatorio == $this->idRelatorio){
-                    $total += $peca->custo;
+        if($model = Peca::find()->all()){
+            foreach ($model as $peca){
+                for($i = 0; $i < sizeof($peca->relatoriopecas); $i++){
+                    if($peca->relatoriopecas[$i]->idRelatorio == $this->idRelatorio){
+                        $total += $peca->custo;
+                    }
                 }
             }
         }

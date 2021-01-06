@@ -23,6 +23,7 @@ use app\models\Dispositivo;
  */
 class Avaria extends \yii\db\ActiveRecord
 {
+    public $search;
     public $referencia;
     public $count;
     public $estado_array = array('Starvation', 'Nao Resolvido', 'Em Resolucao', 'Resolvido');
