@@ -2,33 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1de8aaa-f5ee-4ec3-9032-ce986d56baad" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/web_psi_2190788_2190778.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/web_psi_2190788_2190778.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/am/common/tests/unit/UtilizadorTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/backend/tests/_data/login_data.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/backend/tests/_data/login_data.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/backend/tests/functional/LoginCest.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/backend/tests/functional/LoginCest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/common/fixtures/UserFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/common/fixtures/UserFixture.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/common/tests/_data/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/common/tests/_data/user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/backend/controllers/UtilizadorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/backend/controllers/UtilizadorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/backend/views/utilizador/_form.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/backend/views/utilizador/_form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/backend/views/utilizador/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/backend/views/utilizador/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/common/models/Avaria.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/common/models/Avaria.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/common/models/Dispositivo.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/common/models/Dispositivo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/common/models/Utilizador.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/common/models/Utilizador.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/am/common/tests/unit.suite.yml" beforeDir="false" afterPath="$PROJECT_DIR$/am/common/tests/unit.suite.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/am/common/tests/unit/AvariaTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/common/tests/unit/AvariaTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/common/tests/unit/models/LoginFormTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/common/tests/unit/models/LoginFormTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/am/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/am/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/tests/_data/login_data.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/tests/_data/login_data.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/tests/acceptance.suite.yml.example" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/tests/acceptance.suite.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/tests/acceptance/HomeCest.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/tests/acceptance/HomeCest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/tests/functional/AboutCest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/tests/functional/ContactCest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/tests/functional/HomeCest.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/tests/functional/HomeCest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/tests/functional/LoginCest.php" beforeDir="false" afterPath="$PROJECT_DIR$/am/frontend/tests/functional/LoginCest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/tests/functional/ResendVerificationEmailCest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/tests/functional/SignupCest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/tests/functional/VerifyEmailCest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/tests/unit/models/ContactFormTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/tests/unit/models/PasswordResetRequestFormTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/tests/unit/models/ResendVerificationEmailFormTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/tests/unit/models/ResetPasswordFormTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/tests/unit/models/SignupFormTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/am/frontend/tests/unit/models/VerifyEmailFormTest.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,14 +124,18 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1khb1fEDhSztHydFum8APUFWw6X" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/am/backend/models" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -157,6 +144,9 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\web_psi_2190788_2190778\am\backend\models" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\web_psi_2190788_2190778\am\common\models" />
     </key>
@@ -177,17 +167,26 @@
       <workItem from="1608303507194" duration="3164000" />
       <workItem from="1608563599775" duration="5517000" />
       <workItem from="1609858408019" duration="11629000" />
+      <workItem from="1609966517999" duration="10024000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1608305114237">
+    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser" timestamp="1609967430788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1280.680@0.0.1920.1040" timestamp="1608305114237" />
+    <state x="765" y="202" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1609967430788" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1609975815719">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609975815719" />
     <state x="632" y="147" key="FileChooserDialogImpl" timestamp="1608304064974">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -197,10 +196,15 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="392" y="64" key="NewPhpClassDialog/0.0.1280.680@0.0.1280.680" timestamp="1608565842462" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1608568713465">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1609967904457">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609967904457" />
+    <state x="455" y="2" width="1008" height="1037" key="search.everywhere.popup" timestamp="1609970662037">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1608568713465" />
     <state x="455" y="2" width="1008" height="1037" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1280.680@0.0.1920.1040" timestamp="1606168812060" />
+    <state x="455" y="2" width="1008" height="1037" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609970662037" />
   </component>
 </project>

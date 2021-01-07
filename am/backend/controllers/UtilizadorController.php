@@ -87,9 +87,9 @@ class UtilizadorController extends Controller
         $model->estado = 1;
         $model->palavraPasse = $this->randomPassword();
 
-        $this->setRole($model);
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->setRole($model->tipo, $model->idUtilizador);
+            $model->save();
             return $this->redirect(['view', 'id' => $model->idUtilizador]);
         }
 
@@ -108,6 +108,8 @@ class UtilizadorController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+
+        $model->setRole($model->tipo, $model->idUtilizador);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->idUtilizador]);
@@ -165,16 +167,4 @@ class UtilizadorController extends Controller
         return implode($pass);
     }
 
-    private function setRole($model){
-        $auth = \Yii::$app->authManager;
-        switch ($model->tipo){
-            case 1:
-                $funcionarioRole = $auth->getRole('funcionario');
-                $auth->assign($funcionarioRole, $model->getId());
-                break;
-            case 2:
-                $tecnicoRole = $auth->getRole('tecnico');
-                $auth->assign($tecnicoRole, $model->getId());
-        }
-    }
 }

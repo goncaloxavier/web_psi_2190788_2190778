@@ -1,9 +1,8 @@
 <?php
 
-namespace app\models;
+namespace common\models;
 
 use Yii;
-use app\models\Dispositivo;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
@@ -21,11 +20,12 @@ use yii\web\IdentityInterface;
  * @property string $data
  * @property int $idDispositivo
  * @property int|null $idRelatorio
+ * @property int $idUtilizador
  *
  * @property Dispositivo $idDispositivo0
  * @property Relatorio[] $relatorios
  */
-class varia extends \yii\db\ActiveRecord
+class Avaria extends \yii\db\ActiveRecord
 {
     public $referencia;
     public $count;

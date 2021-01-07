@@ -18,6 +18,9 @@ use yii\widgets\ActiveForm;
             <td align="left"><label>Palavra Passe</label>
             <td> <?= $form->field($model, 'palavraPasse')->textInput(['maxlength' => true])->label(false) ?>
         <tr>
+            <td align="left"><label>Email</label>
+            <td> <?= $form->field($model, 'email')->textInput(['maxlength' => true])->label(false) ?>
+        <tr>
             <td align="left"><label>Tipo</label>
             <td><?= $form->field($model, 'tipo')->dropDownList($model->tipo_array, ['prompt' => 'Selecione o tipo'])->label(false) ?>
         <tr>
