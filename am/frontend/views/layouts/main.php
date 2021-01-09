@@ -42,6 +42,7 @@ AppAsset::register($this);
         $menuItems = [
             ['label' => 'Avarias', 'url' => ['/avaria/index']],
             ['label' => 'Dispositivos', 'url' => ['/dispositivo/index']],
+            ['label' => 'Pecas', 'url' => ['/peca/index']],
             ['label' => 'Relatorios', 'url' => ['/relatorio/index']],
             ['label' => 'Estatisticas', 'url' => ['/estatistica/index']],
         ];

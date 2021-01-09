@@ -37,12 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'tipo',
                 'label' => 'Tipo',
                 'value' => function($model){
-                    switch ($model->tipo){
-                        case 0:
-                            return 'funcionario';
-                        case 1:
-                            return 'tecnico';
-                    }
+                    return $model->getRole();
                 },
             ],
             [

@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php
             if($model->idRelatorio != null){
                 echo Html::a('Relatorio', ['relatorio/view', 'id' => $model->idRelatorio], ['class' => 'btn btn-primary']);
-            }elseif($model->idRelatorio == null && $model->estado == 3){
+            }elseif($model->idRelatorio == null && $model->estado == 2){
                 echo Html::a('Relatorio', ['relatorio/create', 'idAvaria' => $model->idAvaria], ['class' => 'btn btn-primary']);
             }
         ?>

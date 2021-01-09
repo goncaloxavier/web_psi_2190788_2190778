@@ -103,7 +103,7 @@ class AvariaController extends Controller
     {
         $model = new Avaria();
 
-        $model->estado = 1;
+        $model->estado = 0;
         $model->data = date("Y-m-d H:i:s");
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -127,7 +127,7 @@ class AvariaController extends Controller
         $model = $this->findModel($id);
         if (\Yii::$app->user->can('updateOwnAvaria', ['avaria' => $model]) || Yii::$app->user->identity->tipo != 0) {
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                if($model->estado == 3 && $model->idRelatorio == null){
+                if($model->estado == 2 && $model->idRelatorio == null){
                     $this->redirect(['relatorio/create', 'idAvaria' => $model->idAvaria]);
                 }else{
                     return $this->redirect(['view', 'id' => $model->idAvaria]);

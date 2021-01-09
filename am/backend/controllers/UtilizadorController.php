@@ -85,7 +85,7 @@ class UtilizadorController extends Controller
         $model = new Utilizador();
 
         $model->estado = 1;
-        $model->palavraPasse = $this->randomPassword();
+        $model->palavraPasse = $model->randomPassword();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $model->setRole($model->tipo, $model->idUtilizador);
@@ -137,7 +137,7 @@ class UtilizadorController extends Controller
            $user->estado = 0;
            $user->save();
         }
-        return $this->redirect(['index']);
+        return $this->redirect(['index', 'estado' => 1]);
     }
 
     /**
@@ -154,17 +154,6 @@ class UtilizadorController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
-    }
-
-    private function randomPassword() {
-        $alphabet = 'afghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-        $pass = array();
-        $alphaLength = strlen($alphabet) - 1;
-        for ($i = 0; $i < 6; $i++) {
-            $n = rand(0, $alphaLength);
-            $pass[] = $alphabet[$n];
-        }
-        return implode($pass);
     }
 
 }

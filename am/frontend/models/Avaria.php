@@ -26,7 +26,7 @@ class Avaria extends \yii\db\ActiveRecord
     public $search;
     public $referencia;
     public $count;
-    public $estado_array = array('Starvation', 'Nao Resolvido', 'Em Resolucao', 'Resolvido');
+    public $estado_array = array('Nao Resolvido', 'Em Resolucao', 'Resolvido');
     public $tipo_array = array('Hardware','Software');
     public $gravidade_array = array('Não Funcional','Funcional');
     /**
@@ -116,12 +116,10 @@ class Avaria extends \yii\db\ActiveRecord
     public function getEstado(){
         switch ($this->estado){
             case 0:
-                return ['style' => 'background-color: red'];
-            case 1:
                 return ['style' => 'background-color: orange'];
-            case 2:
+            case 1:
                 return ['style' => 'background-color: yellow'];
-            case 3:
+            case 2:
                 return ['style' => 'background-color: green'];
         }
     }
@@ -135,7 +133,7 @@ class Avaria extends \yii\db\ActiveRecord
             $modelRelatorio->delete();
         }
 
-        if(($this->estado != 3 && ($this->gravidade == 0 || $this->gravidade == 1)) && !Avaria::findBySql($query)->all()){
+        if(($this->estado != 2 && ($this->gravidade == 0 || $this->gravidade == 1)) && !Avaria::findBySql($query)->all()){
             $this->idDispositivo0->estado = 1;
         }else{
             $this->idDispositivo0->estado = 0;
@@ -155,16 +153,16 @@ class Avaria extends \yii\db\ActiveRecord
 
     public function afterSave($insert, $changedAttributes)
     {
-        $query = "SELECT * FROM AVARIA WHERE idAvaria != ".$this->idAvaria." and idDispositivo = ".$this->idDispositivo." and (estado = 1 or estado = 2) and gravidade = 0";
+        $query = "SELECT * FROM AVARIA WHERE idAvaria != ".$this->idAvaria." and idDispositivo = ".$this->idDispositivo." and (estado = 0 or estado = 1) and gravidade = 0";
 
         if($this->gravidade == 1 && !Avaria::findBySql($query)->all()){
             $this->idDispositivo0->estado = 1;
         }else{
-            if(($this->estado == 1 || $this->estado == 2) && $this->gravidade == 0){
+            if(($this->estado == 0 || $this->estado == 1) && $this->gravidade == 0){
                 if(!Avaria::findBySql($query)->all()){
                     $this->idDispositivo0->estado = 0;
                 }
-            }elseif(($this->estado == 3 && ($this->gravidade == 0 || $this->gravidade == 1) && !Avaria::findBySql($query)->all())){
+            }elseif(($this->estado == 2 && ($this->gravidade == 0 || $this->gravidade == 1) && !Avaria::findBySql($query)->all())){
                 $this->idDispositivo0->estado = 1;
             }
         }

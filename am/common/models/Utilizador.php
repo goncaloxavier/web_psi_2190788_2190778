@@ -243,6 +243,27 @@ class Utilizador extends \yii\db\ActiveRecord implements IdentityInterface
         return $this->estado_array;
     }
 
+
+    public function getRole(){
+        switch ($this->tipo){
+            case 0:
+                return 'Funcionario';
+            case 1:
+                return 'Tecnico';
+            case 2:
+                return 'Admin';
+        }
+    }
+
+    public function getEstadoString(){
+        switch ($this->estado){
+            case 0:
+                return 'Inativo';
+            case 1:
+                return 'Ativo';
+        }
+    }
+
     public function setRole($tipo, $idUtilizador){
         $auth = \Yii::$app->authManager;
         switch ($tipo){
@@ -257,5 +278,16 @@ class Utilizador extends \yii\db\ActiveRecord implements IdentityInterface
                 $auth->assign($tecnicoRole, $idUtilizador);
                 break;
         }
+    }
+
+    public function randomPassword() {
+        $alphabet = 'afghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        $pass = array();
+        $alphaLength = strlen($alphabet) - 1;
+        for ($i = 0; $i < 6; $i++) {
+            $n = rand(0, $alphaLength);
+            $pass[] = $alphabet[$n];
+        }
+        return implode($pass);
     }
 }

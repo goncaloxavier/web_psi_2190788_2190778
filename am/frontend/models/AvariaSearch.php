@@ -51,13 +51,13 @@ class AvariaSearch extends Avaria
         }else{
             if(\Yii::$app->user->identity->tipo == 0){
                 $query = Avaria::findBySql("SELECT * FROM avaria 
-                    WHERE avaria.estado IN (3,2,1,0) 
+                    WHERE avaria.estado IN (2,1,0) 
                     and idUtilizador = ".\Yii::$app->user->identity->idUtilizador." 
-                    ORDER BY FIELD(avaria.estado,0,1,2,3), data desc");
+                    ORDER BY FIELD(avaria.estado,0,1,2), data desc");
             }else {
                 $query = Avaria::findBySql("SELECT * FROM avaria 
-                    WHERE avaria.estado IN (3,2,1,0) 
-                    ORDER BY FIELD(avaria.estado,0,1,2,3), data desc");
+                    WHERE avaria.estado IN (2,1,0) 
+                    ORDER BY FIELD(avaria.estado,0,1,2), data desc");
             }
         }
 

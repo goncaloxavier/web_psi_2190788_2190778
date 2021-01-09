@@ -30,11 +30,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            'idUtilizador',
             'nomeUtilizador',
-            'palavraPasse',
             'email:email',
-            'tipo',
+            [
+                'attribute' => 'tipo',
+                'label' => 'Tipo',
+                'value' => function ($model) {
+                    return $model->getRole();
+                },
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

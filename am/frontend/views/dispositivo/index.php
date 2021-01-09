@@ -22,7 +22,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
             'dataCompra',
-            'tipo',
             'referencia',
             [
                 'attribute' => 'estado',

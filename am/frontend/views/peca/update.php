@@ -10,10 +10,8 @@ $this->params['breadcrumbs'][] = ['label' => 'Pecas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->idPeca, 'url' => ['view', 'id' => $model->idPeca]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="peca-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
+<h2><?= Html::encode($this->title) ?></h2>
+<div class="peca-update" align="center">
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>

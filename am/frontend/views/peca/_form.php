@@ -8,18 +8,17 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="peca-form">
-
+<div class="center-screen">
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'descricao')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'custo')->textInput() ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
-    </div>
-
+    <table style="width: 300px">
+        <tr>
+            <td align="left"><label>Descricao</label>
+            <td>  <?= $form->field($model, 'descricao')->textInput()->label(false) ?>
+        <tr>
+            <td align="left"><label>Custo</label>
+            <td><?= $form->field($model, 'custo')->textInput()->label(false)?>
+        <tr>
+            <td></td><td align="right"><?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+    </table>
     <?php ActiveForm::end(); ?>
-
 </div>
