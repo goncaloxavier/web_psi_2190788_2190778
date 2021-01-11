@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use common\models\Utilizador;
 use Yii;
 use app\models\Dispositivo;
 
@@ -18,6 +19,7 @@ use app\models\Dispositivo;
  * @property int $idUtilizador
  * @property int|null $idRelatorio
  *
+ * @property Utilizador $idUtilizador0
  * @property Dispositivo $idDispositivo0
  * @property Relatorio[] $relatorios
  */
@@ -80,6 +82,16 @@ class Avaria extends \yii\db\ActiveRecord
     }
 
     /**
+     * Gets query for [[IdUtilizador0]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdUtilizador0()
+    {
+        return $this->hasOne(Utilizador::className(), ['idUtilizador' => 'idUtilizador']);
+    }
+
+    /**
      * Gets query for [[Relatorios]].
      *
      * @return \yii\db\ActiveQuery
@@ -133,11 +145,15 @@ class Avaria extends \yii\db\ActiveRecord
             $modelRelatorio->delete();
         }
 
-        if(($this->estado != 2 && ($this->gravidade == 0 || $this->gravidade == 1)) && !Avaria::findBySql($query)->all()){
+        if($this->estado != 2 && (!Avaria::findBySql($query)->all() && ($this->gravidade == 0 || $this->gravidade == 1))){
             $this->idDispositivo0->estado = 1;
         }else{
             $this->idDispositivo0->estado = 0;
         }
+
+        $query = Avaria::find()
+            ->where('(estado = 2 or (gravidade = 1 and (estado = 0 or estado = 1)))')
+            ->count('DISTINCT(idDispositivo)');
 
         $this->idDispositivo0->save();
 
@@ -162,7 +178,7 @@ class Avaria extends \yii\db\ActiveRecord
                 if(!Avaria::findBySql($query)->all()){
                     $this->idDispositivo0->estado = 0;
                 }
-            }elseif(($this->estado == 2 && ($this->gravidade == 0 || $this->gravidade == 1) && !Avaria::findBySql($query)->all())){
+            }elseif($this->estado == 2 && (!Avaria::findBySql($query)->all() && ($this->gravidade == 0 || $this->gravidade == 1))){
                 $this->idDispositivo0->estado = 1;
             }
         }

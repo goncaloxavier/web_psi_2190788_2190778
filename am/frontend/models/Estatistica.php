@@ -22,6 +22,7 @@ class Estatistica extends \yii\db\ActiveRecord
             $model = Avaria::find()->all();
             return count($model);
         }else{
+            $mes += 1;
             $model = Avaria::find()->where(['Month(data)' => $mes])->count();
             return $model;
         }
@@ -38,6 +39,7 @@ class Estatistica extends \yii\db\ActiveRecord
             $query = Avaria::find()->where(['estado' => 3])->count();
             return $query;
         }else{
+            $mes += 1;
             $query = Avaria::find()->where(['month(data)'=>$mes, 'estado' => 3])->count();
             return $query;
         }
@@ -50,6 +52,7 @@ class Estatistica extends \yii\db\ActiveRecord
             $query = Avaria::find()->where(['estado' => 1])->count();
             return $query;
         }else{
+            $mes += 1;
             $query = Avaria::find()->where(['month(data)'=>$mes, 'estado' => 1])->count();
             return $query;
         }
@@ -57,25 +60,44 @@ class Estatistica extends \yii\db\ActiveRecord
     }
 
     public function getnDispositivoF($mes){
+        $query = 0;
 
         if($mes == null){
             $query = Dispositivo::find()->where(['estado' => 1])->count();
             return $query;
         }else{
-            $query = Dispositivo::find()->where(['month(dataCompra)'=>$mes, 'estado' => 1])->count();
-            return $query;
+            $mes += 1;
+
+            $dispositivos = Dispositivo::find()->all();
+             foreach ($dispositivos as $dispositivo){
+                if(sizeof($dispositivo->avarias) != 0){
+                    $validate = "SELECT * FROM AVARIA idDispositivo = ".$dispositivo->idDispositivo." and (estado = 1 or estado = 2) and gravidade = 0";
+                    foreach ($dispositivo->avarias as $avaria){
+                       $month = date("m",strtotime($avaria->data));
+                        if((int)$month == $mes && (!Avaria::findBySql($validate) && ($avaria->estado == 2 || $avaria->gravidade == 1))){
+                            $query ++;
+                        }
+                    }
+                }
+             }
         }
+
+        return $query;
     }
 
     public function getnDispositivoNF($mes){
+        $query = 0;
 
         if($mes == null){
             $query = Dispositivo::find()->where(['estado' => 0])->count();
             return $query;
         }else{
-            $query = Dispositivo::find()->where(['month(dataCompra)'=>$mes, 'estado' => 0])->count();
-            return $query;
+            $mes += 1;
+            $query = Avaria::find()
+                        ->where('month(data) = '.$mes.' and (gravidade = 0 and (estado = 0 or estado = 1))')
+                        ->count('DISTINCT(idDispositivo)');
         }
+        return $query;
     }
 
     public function getTotalPecas($mes){
@@ -90,6 +112,7 @@ class Estatistica extends \yii\db\ActiveRecord
 
             return $total;
         }else{
+            $mes += 1;
             $modelAvaria = Avaria::find()->where(['month(data)'=>$mes])->all();
             $model = Peca::find()->all();
 

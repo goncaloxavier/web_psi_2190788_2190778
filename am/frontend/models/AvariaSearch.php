@@ -43,7 +43,10 @@ class AvariaSearch extends Avaria
     {
         if($search != null){
             if($modelDispositivo = Dispositivo::find()->where(['referencia' => $search])->one()){
-                $query = Avaria::find()->where(['idDispositivo' => $modelDispositivo->idDispositivo]);
+                $query = Avaria::findBySql("SELECT * FROM avaria 
+                    WHERE avaria.estado IN (2,1,0) 
+                    and idDispositivo = ".$modelDispositivo->idDispositivo." 
+                    ORDER BY FIELD(avaria.estado,0,1,2), avaria.data DESC");
             }
             else{
                 $query = Avaria::find()->where(['idAvaria' => -1]);
@@ -53,11 +56,11 @@ class AvariaSearch extends Avaria
                 $query = Avaria::findBySql("SELECT * FROM avaria 
                     WHERE avaria.estado IN (2,1,0) 
                     and idUtilizador = ".\Yii::$app->user->identity->idUtilizador." 
-                    ORDER BY FIELD(avaria.estado,0,1,2), data desc");
+                    ORDER BY FIELD(avaria.estado,0,1,2), avaria.data DESC");
             }else {
                 $query = Avaria::findBySql("SELECT * FROM avaria 
                     WHERE avaria.estado IN (2,1,0) 
-                    ORDER BY FIELD(avaria.estado,0,1,2), data desc");
+                    ORDER BY FIELD(avaria.estado,0,1,2), avaria.data DESC");
             }
         }
 

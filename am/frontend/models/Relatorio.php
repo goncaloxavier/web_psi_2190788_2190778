@@ -187,8 +187,10 @@ class Relatorio extends \yii\db\ActiveRecord
 
     public function beforeDelete()
     {
-        foreach ($this->relatoriopecas as $relatoriopeca){
-            $relatoriopeca->delete();
+        if(sizeof($this->relatoriopecas) != 0){
+            foreach ($this->relatoriopecas as $relatoriopeca){
+                $relatoriopeca->delete();
+            }
         }
 
         $this->idAvaria0->idRelatorio = null;

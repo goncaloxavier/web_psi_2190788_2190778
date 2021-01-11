@@ -24,7 +24,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
             'descricao',
-            'custo',
+            [
+                'attribute' => 'custo',
+                'label' => 'Custo',
+                'value' => function ($model) {
+                    return $model->custo.'€';
+                },
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

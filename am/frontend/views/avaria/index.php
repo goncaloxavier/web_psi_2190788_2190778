@@ -23,7 +23,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
-            'data',
+            [
+                'attribute' => 'idUtilizador',
+                'label' => 'Autor',
+                'value' => function ($model) {
+                    return $model->idUtilizador0->nomeUtilizador;
+                },
+            ],
             'descricao',
             [
                 'attribute' => 'idDispositivo',
@@ -32,6 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->idDispositivo0->referencia;
                 },
             ],
+          'data',
             [
                 'attribute' => 'estado',
                 'label' => 'Estado Reparacao',
