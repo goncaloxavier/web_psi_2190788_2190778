@@ -56,20 +56,20 @@ class EstatisticaController extends Controller
                 case '1':
                     if(isset($option['mes'])){
                         $model->mes = $option['mes'];
-                        $model->nAvaria = $model->getnAvaria(($model->mes));
-                        $model->custoPeca = $model->getTotalPecas(($model->mes)).'€';
-                        $model->nAvariaRes = $model->getnAvariaRes(($model->mes));
-                        $model->nAvariaNr = $model->getnAvariaNr(($model->mes));
-                        $model->nDispositivoF = $model->getnDispositivoF(($model->mes));
-                        $model->nDispositivoNF = $model->getnDispositivoNF(($model->mes));
+                        $model->nAvaria = $model->getnAvaria(($model->mes+1));
+                        $model->custoPeca = $model->getTotalPecas(($model->mes+1)).'€';
+                        $model->nAvariaRes = $model->getnAvariaRes(($model->mes+1));
+                        $model->nAvariaNr = $model->getnAvariaNr(($model->mes+1));
+                        $model->nDispositivoF = $model->getnDispositivoF(($model->mes+1));
+                        $model->nDispositivoNF = $model->getnDispositivoNF(($model->mes+1));
                     }else{
                         $model->mes = 0;
-                        $model->nAvaria = $model->getnAvaria(($model->mes));
-                        $model->custoPeca = $model->getTotalPecas(($model->mes)).'€';
-                        $model->nAvariaRes = $model->getnAvariaRes(($model->mes));
-                        $model->nAvariaNr = $model->getnAvariaNr(($model->mes));
-                        $model->nDispositivoF = $model->getnDispositivoF(($model->mes));
-                        $model->nDispositivoNF = $model->getnDispositivoNF(($model->mes));
+                        $model->nAvaria = $model->getnAvaria(($model->mes+1));
+                        $model->custoPeca = $model->getTotalPecas(($model->mes+1)).'€';
+                        $model->nAvariaRes = $model->getnAvariaRes(($model->mes+1));
+                        $model->nAvariaNr = $model->getnAvariaNr(($model->mes+1));
+                        $model->nDispositivoF = $model->getnDispositivoF(($model->mes+1));
+                        $model->nDispositivoNF = $model->getnDispositivoNF(($model->mes+1));
                     }
                     break;
             }

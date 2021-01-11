@@ -138,7 +138,7 @@ class Avaria extends \yii\db\ActiveRecord
 
     public function beforeDelete()
     {
-        $query = "SELECT * FROM AVARIA WHERE idAvaria != ".$this->idAvaria." and idDispositivo = ".$this->idDispositivo." and (estado = 1 or estado = 2) and gravidade = 0";
+        $query = "SELECT * FROM AVARIA WHERE idAvaria != ".$this->idAvaria." and idDispositivo = ".$this->idDispositivo." and (estado = 0 or estado = 1) and gravidade = 0";
 
         if($this->idRelatorio != null){
             $modelRelatorio = Relatorio::findOne($this->idRelatorio);
