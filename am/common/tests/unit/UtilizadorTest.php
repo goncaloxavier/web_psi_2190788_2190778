@@ -36,6 +36,7 @@ class UtilizadorTest extends \Codeception\Test\Unit
         $user->setEmail('tecnico@gmail.com');
         $user->setEstado(1);
         $user->setTipo(2);
+        $user->setIdValidacao("22");
         $user->save();
 
         $this->tester->seeInDatabase('utilizador', [

@@ -2,6 +2,8 @@
 
 use common\models\Avaria;
 use common\models\Dispositivo;
+use common\models\Relatorio;
+use common\models\Relatoriopeca;
 use common\models\Utilizador;
 
 class AvariaTest extends \Codeception\Test\Unit
@@ -13,6 +15,8 @@ class AvariaTest extends \Codeception\Test\Unit
 
     protected function _before()
     {
+        $this->deleteAll();
+
         $d = $this->getDispositivoValido();
         $d->save();
 
@@ -40,7 +44,12 @@ class AvariaTest extends \Codeception\Test\Unit
         $a = $this->getAvariaValida();
         $a->save();
 
-        $this->tester->seeInDatabase('avaria', ['descricao' => 'Testing']);
+        $this->tester->seeInDatabase('avaria', ['descricao' => 'Testing', 'tipo' => 1]);
+    }
+
+    public function testAvariaValidation(){
+        $a = $this->getAvariaValida();
+        $this->tester->assertFalse($a->estado > 3);
     }
 
     public function getUtilizadorValido(){
@@ -50,6 +59,7 @@ class AvariaTest extends \Codeception\Test\Unit
         $user->setNomeUtilizador('granada');
         $user->setPalavraPasse('bmw451');
         $user->setEmail('tecnico@gmail.com');
+        $user->setIdValidacao("22");
         $user->setEstado(1);
         $user->setTipo(2);
 
@@ -66,6 +76,14 @@ class AvariaTest extends \Codeception\Test\Unit
         $d->tipo = "PC";
 
         return $d;
+    }
+
+    public function deleteAll(){
+        Relatoriopeca::deleteAll();
+        Relatorio::deleteAll();
+        Avaria::deleteAll();
+        Dispositivo::deleteAll();
+        Utilizador::deleteAll();
     }
 
 }

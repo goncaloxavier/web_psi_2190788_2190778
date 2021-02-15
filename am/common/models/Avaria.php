@@ -128,4 +128,100 @@ class Avaria extends \yii\db\ActiveRecord
                 return ['style' => 'background-color: green'];
         }
     }
+
+    /**
+     * @return int
+     */
+    public function getIdAvaria()
+    {
+        return $this->idAvaria;
+    }
+
+    /**
+     * @param int $idAvaria
+     */
+    public function setIdAvaria($idAvaria)
+    {
+        $this->idAvaria = $idAvaria;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescricao()
+    {
+        return $this->descricao;
+    }
+
+    /**
+     * @param string $descricao
+     */
+    public function setDescricao($descricao)
+    {
+        $this->descricao = $descricao;
+    }
+
+    /**
+     * @return string
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * @param string $data
+     */
+    public function setData($data)
+    {
+        $this->data = $data;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdDispositivo()
+    {
+        return $this->idDispositivo;
+    }
+
+    /**
+     * @param int $idDispositivo
+     */
+    public function setIdDispositivo($idDispositivo)
+    {
+        $this->idDispositivo = $idDispositivo;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getIdRelatorio()
+    {
+        return $this->idRelatorio;
+    }
+
+    /**
+     * @param int|null $idRelatorio
+     */
+    public function setIdRelatorio($idRelatorio)
+    {
+        $this->idRelatorio = $idRelatorio;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdUtilizador()
+    {
+        return $this->idUtilizador;
+    }
+
+    /**
+     * @param int $idUtilizador
+     */
+    public function setIdUtilizador($idUtilizador)
+    {
+        $this->idUtilizador = $idUtilizador;
+    }
 }

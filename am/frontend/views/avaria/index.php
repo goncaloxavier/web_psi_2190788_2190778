@@ -9,10 +9,11 @@ use yii\grid\GridView;
 
 $this->title = 'Listagem de Avarias';
 $this->params['breadcrumbs'][] = $this->title;
+$numAvarias = \app\models\Avaria::find()->all();
 ?>
 <div class="avaria-index">
 
-    <h2><?= Html::encode($this->title) ?></h2>
+    <h2><?= Html::encode($this->title.' ('.sizeof($numAvarias).')') ?></h2>
 
     <p align="right">
         <?= Html::a('+', ['create'], ['class' => 'btn btn-success']) ?>

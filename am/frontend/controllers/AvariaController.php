@@ -105,6 +105,7 @@ class AvariaController extends Controller
 
         $model->estado = 0;
         $model->data = date("Y-m-d H:i:s");
+        $model->idUtilizador = Yii::$app->user->identity->idUtilizador;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->idAvaria]);
